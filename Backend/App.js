@@ -37,6 +37,10 @@ app.use("/Backend/auth", authRoute);
 //   res.send("It works!");
 // });
 
-app.listen(8800, () => {
+app.listen(8000, () => {
   console.log("Server is running!");
+});
+
+app.get("/", (req, res) => {
+  res.json({ message: "Api is running 🚀 !" });
 });
