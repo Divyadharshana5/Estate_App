@@ -42,11 +42,12 @@ export const login = async (req, res) => {
       {
         id: user.id,
       },
-      process.env.JWT_SECRET_KEY
+      process.env.JWT_SECRET_KEY,
+      { expiresIn: age }
     );
     const age = 1000 * 60 * 60 * 24 * 7;
     res
-      .cookie("test2", "myValue2", {
+      .cookie("token", token, {
         httpOnly: true,
         //secure: true,
         maxAge: age,
@@ -59,4 +60,6 @@ export const login = async (req, res) => {
   }
 };
 
-export const logout = (req, res) => {};
+export const logout = (req, res) => {
+  res.clearCookie("token").status(200).json({ message: "Logout Successfully" });
+};
