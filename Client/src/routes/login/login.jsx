@@ -22,11 +22,11 @@ function Login() {
     const password = formData.get("password");
 
     try {
-      const res = apiRequest.post("/auth/login", {
+      const res = await apiRequest.post("/auth/login", {
         username,
         password,
       });
-      updateUser(await res.data);
+      updateUser(res.data);
 
       navigate("/");
     } catch (err) {
@@ -54,7 +54,7 @@ function Login() {
             required
             placeholder="Password"
           />
-          <button disabled={isloading}>Login</button>
+          <button disabled={isLoading}>Login</button>
           {error && <span>{error}</span>}
           <Link to="/register">{"Don't"} you have an account?</Link>
         </form>

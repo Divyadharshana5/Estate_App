@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
-
-  const user = true;
+  const { currentUser } = useContext(AuthContext);
   return (
     <nav>
       <div className="left">
         <a href="/" className="logo">
-          <img src="/logo.png" alt="" />
+          <img src="/logo.png" alt="Logo" />
           <span>LamaEstate</span>
         </a>
         <a href="/">Home</a>
@@ -19,13 +19,14 @@ function Navbar() {
         <a href="/">Agents</a>
       </div>
       <div className="right">
-        {user ? (
+        {currentUser ? (
           <div className="user">
             <img
-              src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt=""
+              src={currentUser?.avatar ? currentUser.avatar : "/noavatar.png"}
+              alt="User Avatar"
+              onError={(e) => (e.target.src = "/noavatar.png")}
             />
-            <span>John Doe</span>
+            <span>{currentUser.username}</span>
             <Link to="/profile" className="profile">
               <div className="notification">3</div>
               <span>Profile</span>
@@ -33,16 +34,16 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <a href="/">Sign in</a>
-            <a href="/" className="register">
+            <Link to="/login">Sign in</Link>
+            <Link to="/register" className="register">
               Sign up
-            </a>
+            </Link>
           </>
         )}
         <div className="menuIcon">
           <img
             src="/menu.png"
-            alt=""
+            alt="Menu"
             onClick={() => setOpen((prev) => !prev)}
           />
         </div>
@@ -51,8 +52,8 @@ function Navbar() {
           <a href="/">About</a>
           <a href="/">Contact</a>
           <a href="/">Agents</a>
-          <a href="/">Sign in</a>
-          <a href="/">Sign up</a>
+          <Link to="/login">Sign in</Link>
+          <Link to="/register">Sign up</Link>
         </div>
       </div>
     </nav>
