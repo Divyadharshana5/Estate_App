@@ -12,6 +12,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     setIsLoading(true);
     const formData = new FormData(e.target);
 
