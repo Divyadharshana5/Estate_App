@@ -37,9 +37,11 @@ export const login = async (req, res) => {
       return res.status(401).json({ message: "Invalid Credentials" });
 
     //res.setHeader("Set-Cookie", "test=" + "myValue").json("Success");
+    const age = 1000 * 60 * 60 * 24 * 7;
     const token = jwt.sign(
       {
         id: user.id,
+        isAdmin: true,
       },
       process.env.JWT_SECRET_KEY,
       { expiresIn: age }
