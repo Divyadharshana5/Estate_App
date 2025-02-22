@@ -8,11 +8,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model post {
   id        String   @id @default(uuid()) 
-  email     String   @unique
-  username  String   @unique
-  password  String
-  avatar    String?
+  title     String
+  price  Int
+  img  String
+  address String
+  city  String
+  bedroom   Int
+  bathroom  Int
+  latitude  String
+  longitude String
+  Type Type
+  Property Property
   createdAt DateTime @default(now())
+  user User @relation()
+  userId String @db.ObjectId
 }
+
+enum Type{
+  buy
+  rent
+}
+
+enum Property{
+  apartment
+  house
+  condo
+  land
+}
+

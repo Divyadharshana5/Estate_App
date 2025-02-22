@@ -1,10 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./profileUpdatePage.scss";
 import { AuthContext } from "../../Context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import UploadWidget from "../../components/uploadwidget/UploadWidget";
+import UploadWidget from "../../components/uploadWidget/UploadWidget";
 
 function ProfileUpdatePage() {
   const { currentUser, updateUser } = useContext(AuthContext);
@@ -65,7 +64,7 @@ function ProfileUpdatePage() {
       </div>
       <div className="sideContainer">
         <img src={avatar || "/noavatar.png"} alt="" className="avatar" />
-        <uploadWidget
+        <UploadWidget
           uwConfig={{
             cloudName: "dv4wtonr0",
             uploadPresent: "estate",

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import styles from "./UploadWidget.module.scss";
 
 const UploadWidget = ({ uwConfig, setPublicId, setAvatar }) => {
   const uploadWidgetRef = useRef(null);
@@ -42,7 +43,7 @@ const UploadWidget = ({ uwConfig, setPublicId, setAvatar }) => {
     <button
       ref={uploadButtonRef}
       id="upload_widget"
-      className="cloudinary-button"
+      className={styles.uploadbutton}
     >
       Upload
     </button>
