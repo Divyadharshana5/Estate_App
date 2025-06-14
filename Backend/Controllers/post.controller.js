@@ -54,6 +54,12 @@ export const deletePost = async (req, res) => {
   const tokenUserId = req.userId;
 
   try {
+    const post = await prisma.post.findUnique({
+      where: { id },
+    });
+    if (post.userId !== tokenUserId) {
+      return res.status(403);
+    }
     res.status(200).json();
   } catch (err) {
     console.log(err);
