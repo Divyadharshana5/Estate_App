@@ -50,5 +50,13 @@ enum Property{
 model PostDetail{
   id String @id @default(uuid()) @map("_id")
   desc String
+  utilities String?
+  pet String?
+  income String?
+  size Int?
+  school Int?
+  bus Int?
+restaurant Int?
+
 
 }
