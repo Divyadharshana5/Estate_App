@@ -49,5 +49,6 @@ enum Property{
 
 model PostDetail{
   id String @id @default(uuid()) @map("_id")
+  desc String
 
 }
