@@ -2,6 +2,7 @@ import prisma from "../lib/prisma.js";
 
 export const getPosts = async (req, res) => {
   try {
+    const posts = await prisma.post.findMany();
     res.status(200).json();
   } catch (err) {
     console.log(err);
