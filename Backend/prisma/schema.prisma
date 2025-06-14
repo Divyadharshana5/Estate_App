@@ -47,3 +47,7 @@ enum Property{
   land
 }
 
+model PostDetail{
+  id String @id @default(uuid()) @map("_id")
+
+}
