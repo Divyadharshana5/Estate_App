@@ -32,6 +32,7 @@ export const addPost = async (req, res) => {
       data: {
         ...body,
         userId: tokenUserId,
+        postDetail: {},
       },
     });
     res.status(200).json(newPost);
