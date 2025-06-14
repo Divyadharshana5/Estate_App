@@ -17,7 +17,7 @@ export const getPost = async (req, res) => {
       where: { id },
     });
 
-    res.status(200).json();
+    res.status(200).json(post);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get post" });
