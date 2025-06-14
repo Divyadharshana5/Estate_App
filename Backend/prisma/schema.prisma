@@ -32,6 +32,7 @@ model Post {
   createdAt DateTime @default(now())
   user User @relation(fields:[userId],references:[id])
  userId String @map("user_id") 
+ postDetail PostDetail?
 
 }
 
@@ -57,6 +58,7 @@ model PostDetail{
   school Int?
   bus Int?
 restaurant Int?
-
+post Post @relation(fields:[postId],references:[id])
+postId String @db.ObjectId @unique
 
 }
