@@ -35,11 +35,11 @@ export const updatePost = async (req, res) => {
     res.status(500).json({ message: "Failed to update posts" });
   }
 };
-export const getPosts = async (req, res) => {
+export const deletePost = async (req, res) => {
   try {
     res.status(200).json();
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to get posts" });
+    res.status(500).json({ message: "Failed to delete posts" });
   }
 };
