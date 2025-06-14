@@ -32,7 +32,9 @@ export const addPost = async (req, res) => {
       data: {
         ...body,
         userId: tokenUserId,
-        postDetail: {},
+        postDetail: {
+          create: body.postDetail,
+        },
       },
     });
     res.status(200).json(newPost);
