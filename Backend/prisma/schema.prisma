@@ -20,7 +20,7 @@ model Post {
   id String @id @default(uuid()) @map("_id")
   title     String
   price  Int
-  img  String
+  image String[]
   address String
   city  String
   bedroom   Int
