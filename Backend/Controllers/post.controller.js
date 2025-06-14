@@ -18,12 +18,12 @@ export const getPost = async (req, res) => {
   }
 };
 
-export const getPosts = async (req, res) => {
+export const addPost = async (req, res) => {
   try {
     res.status(200).json();
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to get posts" });
+    res.status(500).json({ message: "Failed to create post" });
   }
 };
 
