@@ -59,6 +59,6 @@ model PostDetail{
   bus Int?
 restaurant Int?
 post Post @relation(fields:[postId],references:[id])
-postId String @db.ObjectId @unique
+postId String  @unique
 
 }
