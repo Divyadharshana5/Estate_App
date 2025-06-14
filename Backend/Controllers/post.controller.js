@@ -58,7 +58,7 @@ export const deletePost = async (req, res) => {
       where: { id },
     });
     if (post.userId !== tokenUserId) {
-      return res.status(403);
+      return res.status(403).json({ message: "Not Authorized" });
     }
     res.status(200).json();
   } catch (err) {
