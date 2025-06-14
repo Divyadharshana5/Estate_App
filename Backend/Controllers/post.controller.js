@@ -27,6 +27,14 @@ export const addPost = async (req, res) => {
   }
 };
 
+export const updatePost = async (req, res) => {
+  try {
+    res.status(200).json();
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Failed to update posts" });
+  }
+};
 export const getPosts = async (req, res) => {
   try {
     res.status(200).json();
