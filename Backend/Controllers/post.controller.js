@@ -25,6 +25,8 @@ export const getPost = async (req, res) => {
 };
 
 export const addPost = async (req, res) => {
+  const body = req.body;
+  const tokenUserId = req.userId;
   try {
     res.status(200).json();
   } catch (err) {
