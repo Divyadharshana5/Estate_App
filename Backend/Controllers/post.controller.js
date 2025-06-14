@@ -28,6 +28,12 @@ export const addPost = async (req, res) => {
   const body = req.body;
   const tokenUserId = req.userId;
   try {
+    const newPost = await prisma.post.create({
+      data: {
+        ...body,
+        userId: tokenUserId,
+      },
+    });
     res.status(200).json();
   } catch (err) {
     console.log(err);
