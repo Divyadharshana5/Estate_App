@@ -2,6 +2,8 @@ import "./newPostPage.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
+import apiRequest from "../../lib/apiRequest";
+import UploadWidget from "../../components/uploadWidget/UploadWidget";
 
 function NewPostPage() {
   const [value, setValue] = useState("");
@@ -25,7 +27,7 @@ function NewPostPage() {
           property: inputs.property,
           latitude: inputs.latitude,
           longitude: inputs.longitude,
-          images:
+          images: images,
         },
         postDetail: {
           desc: value,
@@ -149,7 +151,7 @@ function NewPostPage() {
         </div>
       </div>
       <div className="sideContainer">
-        <UploadWidget/>
+        <UploadWidget />
       </div>
     </div>
   );
