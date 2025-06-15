@@ -151,7 +151,11 @@ function NewPostPage() {
         </div>
       </div>
       <div className="sideContainer">
-        <UploadWidget />
+        <UploadWidget
+          uwConfig={{
+            multiple: true,
+          }}
+        />
       </div>
     </div>
   );
