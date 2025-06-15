@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function NewPostPage() {
   const [value, setValue] = useState("");
+  const [images, setImages] = useState([]);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
@@ -24,6 +25,7 @@ function NewPostPage() {
           property: inputs.property,
           latitude: inputs.latitude,
           longitude: inputs.longitude,
+          images:
         },
         postDetail: {
           desc: value,
@@ -146,7 +148,9 @@ function NewPostPage() {
           </form>
         </div>
       </div>
-      <div className="sideContainer"></div>
+      <div className="sideContainer">
+        <UploadWidget/>
+      </div>
     </div>
   );
 }
