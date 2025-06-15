@@ -25,7 +25,16 @@ function NewPostPage() {
           latitude: inputs.latitude,
           longitude: inputs.longitude,
         },
-        postDetail: {},
+        postDetail: {
+          desc: value,
+          utilities: inputs.utilities,
+          pet: inputs.pet,
+          income: inputs.income,
+          size: parseInt(inputs.size),
+          school: parseInt(inputs.school),
+          bus: parseInt(inputs.bus),
+          restaurant: parseInt(inputs.restaurant),
+        },
       });
     } catch (err) {
       console.log(err);
