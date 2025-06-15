@@ -17,7 +17,12 @@ export const getPost = async (req, res) => {
       where: { id },
       include: {
         postDetail: true,
-        user: true,
+        user: {
+          select: {
+            username: true,
+            avatar: true,
+          },
+        },
       },
     });
 
