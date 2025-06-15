@@ -12,6 +12,9 @@ function NewPostPage() {
     const formData = new FormData(e.target);
     const inputs = Object.fromEntries(formData);
     try {
+      const res = await apiRequest.post("/posts", {
+        postData: {},
+      });
     } catch (err) {
       console.log(err);
       setError(error);
