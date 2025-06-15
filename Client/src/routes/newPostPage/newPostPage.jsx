@@ -5,12 +5,14 @@ import { useState } from "react";
 
 function NewPostPage() {
   const [value, setValue] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const inputs = Object.fromEntries(formData);
-
-    console.log(inputs);
+    try {
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className="newPostPage">
