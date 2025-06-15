@@ -13,7 +13,14 @@ function NewPostPage() {
     const inputs = Object.fromEntries(formData);
     try {
       const res = await apiRequest.post("/posts", {
-        postData: {},
+        postData: {
+          title: inputs.title,
+          price: parseInt(inputs.price),
+          address: inputs.address,
+          city: inputs.city,
+          bedroom: parseInt(inputs.bedroom),
+          bathroom: parseInt(inputs.bathroom),
+        },
         postDetail: {},
       });
     } catch (err) {
