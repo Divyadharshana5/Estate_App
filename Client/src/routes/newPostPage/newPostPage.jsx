@@ -1,4 +1,5 @@
 import "./newPostPage.scss";
+import ReactQuill from "react-quill";
 
 function NewPostPage() {
   return (
