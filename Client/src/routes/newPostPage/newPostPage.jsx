@@ -14,6 +14,7 @@ function NewPostPage() {
     try {
       const res = await apiRequest.post("/posts", {
         postData: {},
+        postDetail: {},
       });
     } catch (err) {
       console.log(err);
