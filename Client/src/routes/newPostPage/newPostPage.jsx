@@ -5,12 +5,16 @@ import { useState } from "react";
 
 function NewPostPage() {
   const [value, setValue] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const FormData = new FormData(e.target);
+  };
   return (
     <div className="newPostPage">
       <div className="formContainer">
         <h1>Add New Post</h1>
         <div className="wrapper">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="item">
               <label htmlFor="title">Title</label>
               <input id="title" name="title" type="text" />
