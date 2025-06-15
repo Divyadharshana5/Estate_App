@@ -118,6 +118,7 @@ function NewPostPage() {
               <input min={0} id="restaurant" name="restaurant" type="number" />
             </div>
             <button className="sendButton">Add</button>
+            {error && <span>error</span>}
           </form>
         </div>
       </div>
