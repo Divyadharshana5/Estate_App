@@ -5,6 +5,8 @@ import { useState } from "react";
 
 function NewPostPage() {
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -12,6 +14,7 @@ function NewPostPage() {
     try {
     } catch (err) {
       console.log(err);
+      setError(error);
     }
   };
   return (
