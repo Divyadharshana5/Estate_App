@@ -7,7 +7,10 @@ function NewPostPage() {
   const [value, setValue] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    const FormData = new FormData(e.target);
+    const formData = new FormData(e.target);
+    const inputs = Object.fromEntries(formData);
+
+    console.log(inputs);
   };
   return (
     <div className="newPostPage">
