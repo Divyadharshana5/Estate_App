@@ -12,6 +12,7 @@ function NewPostPage() {
               <label htmlFor="title">Title</label>
               <input id="title" name="title" type="text" />
             </div>
+            <ReactQuill />
             <div className="item">
               <label htmlFor="price">Price</label>
               <input id="price" name="price" type="number" />
