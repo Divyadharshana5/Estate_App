@@ -154,6 +154,10 @@ function NewPostPage() {
         <UploadWidget
           uwConfig={{
             multiple: true,
+            cloudName: "dv4wtonr0",
+            uploadPresent: "estate",
+            maxImageFileSize: 2000000,
+            folder: "posts",
           }}
         />
       </div>
