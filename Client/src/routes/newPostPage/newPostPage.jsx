@@ -10,6 +10,8 @@ function NewPostPage() {
   const [images, setImages] = useState([]);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -40,6 +42,7 @@ function NewPostPage() {
           restaurant: parseInt(inputs.restaurant),
         },
       });
+      navigate();
     } catch (err) {
       console.log(err);
       setError(error);
