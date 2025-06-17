@@ -161,6 +161,7 @@ function NewPostPage() {
             uploadPresent: "estate",
             folder: "posts",
           }}
+          setState={setImages}
         />
       </div>
     </div>
