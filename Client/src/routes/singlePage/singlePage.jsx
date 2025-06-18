@@ -5,7 +5,7 @@ import { singlePostData, userData } from "../../lib/dummydata";
 import { useLoaderData } from "react-router-dom";
 
 function SinglePage() {
-  const { contacts } = useLoaderData;
+  const post = useLoaderData;
   return (
     <div className="singlePage">
       <div className="details">
