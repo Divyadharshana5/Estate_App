@@ -6,6 +6,7 @@ export const singlePageLoader = async ({ request, params }) => {
 };
 
 export const listPageLoader = async ({ request, params }) => {
+  console.log(request);
   // const res = await apiRequest("/posts" + params.id);
   // return res.data;
 };
