@@ -15,7 +15,7 @@ function SearchBar() {
     setQuery((prev) => ({ ...prev, type: val }));
   };
   const handleChange = (e) => {
-    setQuery((prev) => ({ ...prev }));
+    setQuery((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
