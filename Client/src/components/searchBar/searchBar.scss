@@ -73,6 +73,9 @@
     a {
       flex: 1;
       background-color: #fece51;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       button {
         border: none;
         cursor: pointer;
