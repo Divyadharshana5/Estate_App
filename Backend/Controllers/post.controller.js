@@ -10,6 +10,10 @@ export const getPosts = async (req, res) => {
         type: query.type || undefined,
         property: query.property || undefined,
         bedroom: parseInt(query.bedroom) || undefined,
+        price: {
+          gte: parseInt(query.minPrice) || 0,
+          lte: parseInt(query.maxPrice) || 0,
+        },
       },
     });
     res.status(200).json(posts);
