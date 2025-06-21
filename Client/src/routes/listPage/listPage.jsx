@@ -6,7 +6,7 @@ import { Await, useLoaderData } from "react-router-dom";
 import { Suspense } from "react";
 
 function ListPage() {
-  const posts = useLoaderData();
+  const data = useLoaderData();
 
   return (
     <div className="listPage">
@@ -29,7 +29,7 @@ function ListPage() {
         </div>
       </div>
       <div className="mapContainer">
-        <Map items={posts} />
+        <Map items={data} />
       </div>
     </div>
   );
