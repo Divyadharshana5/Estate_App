@@ -16,14 +16,11 @@ function ListPage() {
           <Suspense fallback={<p>Loading...</p>}>
             <Await
               resolve={data.packageLocation}
-              errorElement={<p>Error loading package location!</p>}
+              errorElement={<p>Error loading posts</p>}
             >
-              {(packageLocation) => (
-                <p>
-                  Your package is at {packageLocation.latitude} lat and{""}
-                  {packageLocation.longitude} long.
-                </p>
-              )}
+              {(postResponse) => ({
+                postResponse,
+              })}
             </Await>
           </Suspense>
         </div>
