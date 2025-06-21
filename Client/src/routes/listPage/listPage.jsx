@@ -3,6 +3,7 @@ import Filter from "../../components/filter/Filter";
 import Card from "../../components/card/Card";
 import Map from "../../components/map/Map";
 import { useLoaderData } from "react-router-dom";
+import { Suspense } from "react";
 
 function ListPage() {
   const posts = useLoaderData();
@@ -12,9 +13,7 @@ function ListPage() {
       <div className="listContainer">
         <div className="wrapper">
           <Filter />
-          {posts.map((item) => (
-            <Card key={item.id} item={item} />
-          ))}
+          <Suspense fallback={<p>Loading...</p>}></Suspense>
         </div>
       </div>
       <div className="mapContainer">
