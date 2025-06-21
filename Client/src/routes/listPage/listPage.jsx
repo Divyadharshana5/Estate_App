@@ -17,7 +17,13 @@ function ListPage() {
             <Await
               resolve={data.packageLocation}
               errorElement={<p>Error loading package location!</p>}
-            ></Await>
+            >
+              {(packageLocation) => (
+                <p>
+                  Your package is at {packageLocation.latitude} lat and{""}
+                </p>
+              )}
+            </Await>
           </Suspense>
         </div>
       </div>
