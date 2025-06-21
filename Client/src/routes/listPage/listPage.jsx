@@ -21,6 +21,7 @@ function ListPage() {
               {(packageLocation) => (
                 <p>
                   Your package is at {packageLocation.latitude} lat and{""}
+                  {packageLocation.longitude} long.
                 </p>
               )}
             </Await>
