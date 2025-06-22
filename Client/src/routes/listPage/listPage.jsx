@@ -27,7 +27,21 @@ function ListPage() {
           </Suspense>
         </div>
       </div>
-      <div className="mapContainer">{/* <Map items={data} />*/}</div>
+      <div className="mapContainer">
+        <Suspense fallback={<p>Loading...</p>}>
+          <Await
+            resolve={data.packageLocation}
+            errorElement={<p>Error loading posts</p>}
+          >
+            {(postResponse) =>
+              postResponse.data.map((post) => (
+                <Card key={post.id} item={post} />
+              ))
+            }
+          </Await>
+        </Suspense>
+        {/* <Map items={data} />*/}
+      </div>
     </div>
   );
 }
