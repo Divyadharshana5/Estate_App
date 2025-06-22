@@ -16,6 +16,7 @@ export const getPosts = async (req, res) => {
         },
       },
     });
+    setTimeout(() => {}, 3000);
     res.status(200).json(posts);
   } catch (err) {
     console.log(err);
