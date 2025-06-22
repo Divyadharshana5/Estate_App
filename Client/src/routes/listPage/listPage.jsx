@@ -33,7 +33,7 @@ function ListPage() {
             resolve={data.packageLocation}
             errorElement={<p>Error loading posts</p>}
           >
-            {(postResponse) => <Map items={data} />}
+            {(postResponse) => <Map items={postResponse} />}
           </Await>
         </Suspense>
       </div>
