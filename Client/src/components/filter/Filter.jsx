@@ -3,7 +3,7 @@ import "./filter.scss";
 
 function Filter() {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams);
+  console.log(searchParams.get("city"));
   return (
     <div className="filter">
       <h1>
