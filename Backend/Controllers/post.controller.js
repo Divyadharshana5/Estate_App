@@ -16,9 +16,9 @@ export const getPosts = async (req, res) => {
         },
       },
     });
-    setTimeout(() => {
-      res.status(200).json(posts);
-    }, 3000);
+    // setTimeout(() => {
+    res.status(200).json(posts);
+    //  }, 3000);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get posts" });
