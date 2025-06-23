@@ -4,7 +4,9 @@ import { useState } from "react";
 
 function Filter() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState;
+  const [query, setQuery] = useState({
+    type: searchParams.get("type") || "",
+  });
   return (
     <div className="filter">
       <h1>
