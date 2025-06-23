@@ -1,9 +1,10 @@
 import { useSearchParams } from "react-router-dom";
 import "./filter.scss";
+import { useState } from "react";
 
 function Filter() {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get("city"));
+  const [query, setQuery] = useState;
   return (
     <div className="filter">
       <h1>
