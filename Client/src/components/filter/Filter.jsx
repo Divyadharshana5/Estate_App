@@ -12,6 +12,13 @@ function Filter() {
     maxPrice: searchParams.get("maxPrice") || 10000000,
     bedroom: searchParams.get("bedroom") || 1,
   });
+
+  const handleChange = (e) => {
+    setQuery({
+      ...query,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <div className="filter">
       <h1>
