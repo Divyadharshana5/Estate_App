@@ -25,7 +25,7 @@ function Filter() {
   return (
     <div className="filter">
       <h1>
-        Search results for <b>London</b>
+        Search results for <b>{query.city}</b>
       </h1>
       <div className="top">
         <div className="item">
@@ -36,6 +36,7 @@ function Filter() {
             name="city"
             placeholder="City Location"
             onChange={handleChange}
+            defaultValue={query.city}
           />
         </div>
       </div>
@@ -43,6 +44,7 @@ function Filter() {
         <div className="item">
           <label htmlFor="type">Type</label>
           onChange={handleChange}
+          defaultValue={query.type}
           <select name="type" id="type">
             <option value="">any</option>
             <option value="buy">Buy</option>
@@ -52,6 +54,7 @@ function Filter() {
         <div className="item">
           <label htmlFor="property">Property</label>
           onChange={handleChange}
+          defaultValue={query.property}
           <select name="property" id="property">
             <option value="">any</option>
             <option value="apartment">Apartment</option>
