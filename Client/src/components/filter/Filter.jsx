@@ -32,6 +32,7 @@ function Filter() {
             id="city"
             name="city"
             placeholder="City Location"
+            onChange={handleChange}
           />
         </div>
       </div>
