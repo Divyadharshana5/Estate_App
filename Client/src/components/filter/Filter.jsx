@@ -19,6 +19,7 @@ function Filter() {
       [e.target.name]: e.target.value,
     });
   };
+  const handleFilter = () => {};
   return (
     <div className="filter">
       <h1>
@@ -77,7 +78,7 @@ function Filter() {
           onChange={handleChange}
           <input type="text" id="bedroom" name="bedroom" placeholder="any" />
         </div>
-        <button>
+        <button onClick={handleFilter}>
           <img src="/search.png" alt="" />
         </button>
       </div>
