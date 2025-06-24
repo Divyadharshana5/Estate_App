@@ -19,7 +19,9 @@ function Filter() {
       [e.target.name]: e.target.value,
     });
   };
-  const handleFilter = () => {};
+  const handleFilter = () => {
+    setSearchParams(query);
+  };
   return (
     <div className="filter">
       <h1>
