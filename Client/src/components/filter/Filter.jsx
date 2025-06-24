@@ -39,6 +39,7 @@ function Filter() {
       <div className="bottom">
         <div className="item">
           <label htmlFor="type">Type</label>
+          onChange={handleChange}
           <select name="type" id="type">
             <option value="">any</option>
             <option value="buy">Buy</option>
@@ -47,6 +48,7 @@ function Filter() {
         </div>
         <div className="item">
           <label htmlFor="property">Property</label>
+          onChange={handleChange}
           <select name="property" id="property">
             <option value="">any</option>
             <option value="apartment">Apartment</option>
@@ -62,14 +64,17 @@ function Filter() {
             id="minPrice"
             name="minPrice"
             placeholder="any"
+            onChange={handleChange}
           />
         </div>
         <div className="item">
           <label htmlFor="maxPrice">Max Price</label>
+          onChange={handleChange}
           <input type="text" id="maxPrice" name="maxPrice" placeholder="any" />
         </div>
         <div className="item">
           <label htmlFor="bedroom">Bedroom</label>
+          onChange={handleChange}
           <input type="text" id="bedroom" name="bedroom" placeholder="any" />
         </div>
         <button>
