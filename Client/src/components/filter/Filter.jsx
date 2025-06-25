@@ -71,16 +71,19 @@ function Filter() {
             name="minPrice"
             placeholder="any"
             onChange={handleChange}
+            defaultValue={query.minPrice}
           />
         </div>
         <div className="item">
           <label htmlFor="maxPrice">Max Price</label>
           onChange={handleChange}
+          defaultValue={query.maxPrice}
           <input type="text" id="maxPrice" name="maxPrice" placeholder="any" />
         </div>
         <div className="item">
           <label htmlFor="bedroom">Bedroom</label>
           onChange={handleChange}
+          defaultValue={query.bedroom}
           <input type="text" id="bedroom" name="bedroom" placeholder="any" />
         </div>
         <button onClick={handleFilter}>
