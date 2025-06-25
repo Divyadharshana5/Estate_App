@@ -73,17 +73,14 @@ export const deleteUser = async (req, res) => {
 };
 
 export const savePost = async (req, res) => {
-  const id = req.params.id;
+  const postId = req.body.postId;
   const tokenUserId = req.userId;
-  const { password, avatar, ...inputs } = req.body;
-
-  if (id !== tokenUserId) {
-    return res.status(403).json({ message: "Not Authorized" });
-  }
 
   try {
-    await prisma.user.delete({
-      where: { id },
+    const savedPost = await prisma.savedPost.findUnique({
+      where: {
+        userId_postId: {},
+      },
     });
     res.status(200).json({ message: "User deleted" });
   } catch (err) {
