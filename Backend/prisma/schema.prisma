@@ -73,4 +73,5 @@ userId String  @unique
 postId String  @unique
   createdAt DateTime @default(now())
 
+@@unique([userId,postId])
 }
