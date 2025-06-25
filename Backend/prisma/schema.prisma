@@ -60,10 +60,12 @@ model PostDetail{
 restaurant Int?
 post Post @relation(fields:[postId],references:[id])
 postId String  @unique
-
 }
 
 model SavedPost{
   id String @id @default(uuid()) @map("_id")
-
+ user User @relation(fields:[postId],references:[id])
+post Post @relation(fields:[postId],references:[id])
+userId String  @unique
+postId String  @unique
 }
