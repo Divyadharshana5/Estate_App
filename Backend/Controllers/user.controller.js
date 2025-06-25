@@ -79,7 +79,10 @@ export const savePost = async (req, res) => {
   try {
     const savedPost = await prisma.savedPost.findUnique({
       where: {
-        userId_postId: {},
+        userId_postId: {
+          userId: tokenUserId,
+          postId,
+        },
       },
     });
     res.status(200).json({ message: "User deleted" });
