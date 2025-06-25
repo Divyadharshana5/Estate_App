@@ -62,3 +62,8 @@ post Post @relation(fields:[postId],references:[id])
 postId String  @unique
 
 }
+
+model SavedPost{
+  id String @id @default(uuid()) @map("_id")
+
+}
