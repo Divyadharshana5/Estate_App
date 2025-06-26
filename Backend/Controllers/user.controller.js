@@ -92,6 +92,13 @@ export const savePost = async (req, res) => {
         },
       });
       res.status(200).json({ message: "post removed from saved list" });
+    } else {
+      await prisma.savedPost.create({
+        where: {
+          id: savedPost.id,
+        },
+      });
+      res.status(200).json({ message: "post removed from saved list" });
     }
   } catch (err) {
     console.log(err);
