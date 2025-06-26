@@ -99,7 +99,7 @@ export const savePost = async (req, res) => {
           postId,
         },
       });
-      res.status(200).json({ message: "post removed from saved list" });
+      res.status(200).json({ message: "post saved" });
     }
   } catch (err) {
     console.log(err);
