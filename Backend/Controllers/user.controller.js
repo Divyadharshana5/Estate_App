@@ -91,6 +91,7 @@ export const savePost = async (req, res) => {
           id: savedPost.id,
         },
       });
+      res.status(200).json({ message: "post" });
     }
     res.status(200).json({ message: "User deleted" });
   } catch (err) {
