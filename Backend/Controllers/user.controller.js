@@ -85,6 +85,13 @@ export const savePost = async (req, res) => {
         },
       },
     });
+    if (savedPost) {
+      await prisma.savedPost.delete({
+        where: {
+          id: savedPost.id,
+        },
+      });
+    }
     res.status(200).json({ message: "User deleted" });
   } catch (err) {
     console.log(err);
