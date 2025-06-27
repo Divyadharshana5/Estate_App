@@ -48,7 +48,7 @@ export const getPost = async (req, res) => {
     if (!token) {
       userId = null;
     } else {
-      jwt.verify;
+      jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {});
     }
     res.status(200).json(post);
   } catch (err) {
