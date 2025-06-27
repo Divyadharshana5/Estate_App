@@ -56,6 +56,14 @@ export const getPost = async (req, res) => {
         }
       });
     }
+
+    const saved = await prisma.savedPost.findUnique({
+      where: {
+        userId_postId: {
+          postId,
+        },
+      },
+    });
     res.status(200).json(post);
   } catch (err) {
     console.log(err);
