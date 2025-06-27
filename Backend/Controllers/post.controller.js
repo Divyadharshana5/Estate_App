@@ -60,7 +60,8 @@ export const getPost = async (req, res) => {
     const saved = await prisma.savedPost.findUnique({
       where: {
         userId_postId: {
-          postId,
+          postId: id,
+          userId,
         },
       },
     });
