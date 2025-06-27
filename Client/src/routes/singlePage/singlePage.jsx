@@ -1,12 +1,13 @@
 import "./singlePage.scss";
 import Slider from "../../components/slider/Slider";
 import Map from "../../components/map/Map";
+import { singlePostData, userData } from "../../lib/dummydata";
 import { useLoaderData } from "react-router-dom";
 import DOMPurify from "dompurify";
 
 function SinglePage() {
   const post = useLoaderData();
-
+  console.log(post);
   return (
     <div className="singlePage">
       <div className="details">
