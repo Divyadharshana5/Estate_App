@@ -49,9 +49,10 @@ export const getPost = async (req, res) => {
       userId = null;
     } else {
       jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
-        if (!token) {
+        if (err) {
           userId = null;
         } else {
+          userId = payload.id;
         }
       });
     }
