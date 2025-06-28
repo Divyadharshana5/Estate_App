@@ -143,7 +143,7 @@ function SinglePage() {
             </button>
             <button onClick={handleSave}>
               <img src="/save.png" alt="" />
-              Save the Place
+              {saved ? "Place Saved" : "Save the Place"}
             </button>
           </div>
         </div>
