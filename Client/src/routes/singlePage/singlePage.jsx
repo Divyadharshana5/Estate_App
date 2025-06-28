@@ -16,7 +16,7 @@ function SinglePage() {
       redirect("/login");
     }
     try {
-      await apiRequest.post("/users/save");
+      await apiRequest.post("/users/save", { postId: post.id });
     } catch (err) {
       console.log(err);
     }
