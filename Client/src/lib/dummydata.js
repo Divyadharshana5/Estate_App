@@ -79,7 +79,9 @@ export const listData = [
   {
     id: 8,
     title: "Apartment 8",
-    img: "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    images: [
+      "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    ],
     bedroom: 3,
     bathroom: 2,
     price: 1500,
