@@ -20,6 +20,7 @@ export const getUser = async (req, res) => {
     const user = await prisma.user.findUnique({
       where: { id },
     });
+    res.status(200).json(user);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get user!" });
@@ -108,5 +109,18 @@ export const savePost = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to delete user!" });
+  }
+};
+
+export const profilePosts = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id },
+    });
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Failed to get user!" });
   }
 };
