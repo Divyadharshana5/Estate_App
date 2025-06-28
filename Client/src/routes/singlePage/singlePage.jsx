@@ -13,6 +13,8 @@ function SinglePage() {
   const { currentUser } = useContext(AuthContext);
 
   const handleSave = async () => {
+    //AFTER REACT 19 UPDATE TO USEOPTIMISTIK HOOK
+    setSaved((prev) => prev);
     if (!currentUser) {
       redirect("/login");
     }
@@ -20,6 +22,7 @@ function SinglePage() {
       await apiRequest.post("/users/save", { postId: post.id });
     } catch (err) {
       console.log(err);
+      setSaved((prev) => prev);
     }
   };
   return (
