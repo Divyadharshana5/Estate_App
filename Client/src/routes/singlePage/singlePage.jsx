@@ -3,12 +3,13 @@ import Slider from "../../components/slider/Slider";
 import Map from "../../components/map/Map";
 import { redirect, useLoaderData } from "react-router-dom";
 import DOMPurify from "dompurify";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 
 function SinglePage() {
   const post = useLoaderData();
+  const [saved, setSaved] = useState(post.isSaved);
   const { currentUser } = useContext(AuthContext);
 
   const handleSave = async () => {
