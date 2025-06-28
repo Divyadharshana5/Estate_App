@@ -14,9 +14,8 @@ export const listPageLoader = async ({ request, params }) => {
   });
 };
 
-export const profilePageLoader = async ({ request, params }) => {
-  const query = request.url.split("?")[1];
-  const postPromise = apiRequest("/posts?" + query);
+export const profilePageLoader = async () => {
+  const postPromise = apiRequest("/users/profilePosts");
   return defer({
     postResponse: postPromise,
   });
