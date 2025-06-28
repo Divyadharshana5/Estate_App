@@ -1,13 +1,21 @@
 import "./singlePage.scss";
 import Slider from "../../components/slider/Slider";
 import Map from "../../components/map/Map";
-import { singlePostData, userData } from "../../lib/dummydata";
 import { useLoaderData } from "react-router-dom";
 import DOMPurify from "dompurify";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function SinglePage() {
   const post = useLoaderData();
-  console.log(post);
+  const { currentUser } = useContext(AuthContext);
+
+  const handleSave = async () => {
+    try {
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="singlePage">
       <div className="details">
@@ -124,7 +132,7 @@ function SinglePage() {
               <img src="/chat.png" alt="" />
               Send a Message
             </button>
-            <button>
+            <button onClick={handleSave}>
               <img src="/save.png" alt="" />
               Save the Place
             </button>
