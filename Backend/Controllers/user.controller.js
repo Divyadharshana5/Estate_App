@@ -15,7 +15,11 @@ export const getUsers = async (req, res) => {
 };
 
 export const getUser = async (req, res) => {
+  const id = req.params.id;
   try {
+    const user = await prisma.user.findUnique({
+      where: { id },
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get user!" });
