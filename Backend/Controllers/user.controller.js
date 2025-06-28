@@ -116,7 +116,7 @@ export const profilePosts = async (req, res) => {
   const tokenUserId = req.params.id;
   try {
     const userPosts = await prisma.posts.findMany({
-      where: { id },
+      where: { userId: tokenUserId },
     });
     res.status(200).json(user);
   } catch (err) {
