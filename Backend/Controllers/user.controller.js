@@ -124,7 +124,9 @@ export const profilePosts = async (req, res) => {
         post: true,
       },
     });
-    res.status(200).json(user);
+
+    const savedPost = saved.map((item) => item.post);
+    res.status(200).json({});
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get user!" });
