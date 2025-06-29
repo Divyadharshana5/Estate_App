@@ -3,7 +3,7 @@ import List from "../../components/list/List";
 import "./profilePage.scss";
 import apiRequest from "../../lib/apiRequest";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { Suspense, useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 
 function ProfilePage() {
@@ -57,6 +57,18 @@ function ProfilePage() {
               <button>Create New Post</button>
             </Link>
           </div>
+          <Suspense fallback={<p>Loading...</p>}>
+            <Await
+              resolve={data.packageLocation}
+              errorElement={<p>Error loading posts</p>}
+            >
+              {(postResponse) =>
+                postResponse.data.map((post) => (
+                  <Card key={post.id} item={post} />
+                ))
+              }
+            </Await>
+          </Suspense>
           <List />
           <div className="title">
             <h1>Saved List</h1>
