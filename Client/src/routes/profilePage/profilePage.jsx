@@ -63,7 +63,7 @@ function ProfilePage() {
               resolve={data.packageLocation}
               errorElement={<p>Error loading posts</p>}
             >
-              {(postResponse) => <List />}
+              {(postResponse) => <List posts={} />}
             </Await>
           </Suspense>
           <List />
