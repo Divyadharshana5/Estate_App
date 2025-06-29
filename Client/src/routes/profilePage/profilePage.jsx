@@ -63,11 +63,7 @@ function ProfilePage() {
               resolve={data.packageLocation}
               errorElement={<p>Error loading posts</p>}
             >
-              {(postResponse) =>
-                postResponse.data.map((post) => (
-                  <Card key={post.id} item={post} />
-                ))
-              }
+              {(postResponse) => <List />}
             </Await>
           </Suspense>
           <List />
