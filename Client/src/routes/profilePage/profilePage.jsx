@@ -60,8 +60,8 @@ function ProfilePage() {
           </div>
           <Suspense fallback={<p>Loading...</p>}>
             <Await
-              resolve={data.packageLocation}
-              errorElement={<p>Error loading posts</p>}
+              resolve={data.postResponse}
+              errorElement={<p>Error loading posts!</p>}
             >
               {(postResponse) => <List posts={postResponse.data.userPosts} />}
             </Await>
