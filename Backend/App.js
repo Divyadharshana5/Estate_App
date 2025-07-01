@@ -18,8 +18,8 @@ app.use("/Backend/posts", postRoute);
 app.use("/Backend/auth", authRoute);
 app.use("/Backend/test", testRoute);
 app.use("/Backend/users", userRoute);
-app.use("/Backend/chat", chatRoute);
-app.use("/Backend/message", messageRoute);
+app.use("/Backend/chats", chatRoute);
+app.use("/Backend/messages", messageRoute);
 
 app.listen(8000, () => {
   console.log("Server is running!");
