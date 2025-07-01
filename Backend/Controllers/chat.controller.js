@@ -23,7 +23,7 @@ export const addChats = async (req, res) => {
     res.status(200).json(users);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to get chats!" });
+    res.status(500).json({ message: "Failed to add chats!" });
   }
 };
 
@@ -32,6 +32,6 @@ export const readChat = async (req, res) => {
     res.status(200).json(users);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to get chats!" });
+    res.status(500).json({ message: "Failed to read chats!" });
   }
 };
