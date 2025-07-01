@@ -101,4 +101,12 @@ model Chat{
   users User[] @relation(fields: [userIDs],references: [id])
   userIDs String[] @db.ObjectId
   createdAt DateTime @default(now())
+  seenBy String[] @db.ObjectId
+}
+model Message{
+  id String @id @default(uuid()) @map("_id")
+  users User[] @relation(fields: [userIDs],references: [id])
+  userIDs String[] @db.ObjectId
+  createdAt DateTime @default(now())
+  seenBy String[] @db.ObjectId
 }
