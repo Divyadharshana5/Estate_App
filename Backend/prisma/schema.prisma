@@ -75,3 +75,8 @@ postId String  @unique
 
 @@unique([userId,postId])
 }
+
+model Chat{
+  id String @id @default(uuid()) @map("_id")
+  createdAt DateTime @default(now())
+}
