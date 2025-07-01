@@ -105,5 +105,9 @@ model Chat{
 }
 model Message{
   id String @id @default(uuid()) @map("_id")
+  text String
+  userId String
+  chat Chat @relation(fields: [chatId],references: [id])
+  chatId String @db.ObjectId
    createdAt DateTime @default(now())
 }
