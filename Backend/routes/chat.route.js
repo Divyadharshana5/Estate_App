@@ -12,6 +12,6 @@ const router = express.Router();
 router.get("/search/:id", verifyToken, getchats);
 router.get("/search/:id", verifyToken, getchat);
 router.post("/", verifyToken, addChat);
-router.post("/read/", verifyToken, readChat);
+router.post("/read/:id", verifyToken, readChat);
 
 export default router;
