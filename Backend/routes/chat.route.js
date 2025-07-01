@@ -6,7 +6,8 @@ const router = express.Router();
 
 router.get("/search/:id", verifyToken, getchats);
 router.get("/search/:id", verifyToken, getchat);
-router.post("/save", verifyToken, savePost);
+router.post("/", verifyToken, addChat);
+router.post("/read/", verifyToken, addChat);
 router.get("/profilePosts", verifyToken, profilePosts);
 
 export default router;
