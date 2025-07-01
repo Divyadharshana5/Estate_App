@@ -93,7 +93,7 @@ model User {
  userId String @map("user_id") 
  postDetail PostDetail?
  savedPosts SavedPost[]
-chats Chat[]
+chats Chat[] @relation(fields: [chatIDs],references: [id])
 chatIDs String[] @db.ObjectId
 }
 model Chat{
