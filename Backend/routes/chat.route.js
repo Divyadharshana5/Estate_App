@@ -1,12 +1,5 @@
 import express from "express";
-import {
-  deleteUser,
-  getUser,
-  getUsers,
-  updateUser,
-  savePost,
-  profilePosts,
-} from "../Controllers/chat.controller.js";
+import {} from "../Controllers/chat.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
