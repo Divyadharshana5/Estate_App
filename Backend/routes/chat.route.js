@@ -1,5 +1,10 @@
 import express from "express";
-import {} from "../Controllers/chat.controller.js";
+import {
+  getchats,
+  getchat,
+  addChat,
+  readChat,
+} from "../Controllers/chat.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
