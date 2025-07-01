@@ -75,7 +75,7 @@ postId String  @unique
 
 @@unique([userId,postId])
 }
-model Post {
+model User {
   id String @id @default(uuid()) @map("_id")
   title     String
   price  Int
@@ -94,9 +94,11 @@ model Post {
  postDetail PostDetail?
  savedPosts SavedPost[]
 chats Chat[]
+chatIDs String[] @db.ObjectId
 }
 model Chat{
   id String @id @default(uuid()) @map("_id")
   users User[]
+  userIDs String[] @db.ObjectId
   createdAt DateTime @default(now())
 }
