@@ -98,7 +98,7 @@ chatIDs String[] @db.ObjectId
 }
 model Chat{
   id String @id @default(uuid()) @map("_id")
-  users User[]
+  users User[] @relation(fields: [userIDs],references: [id])
   userIDs String[] @db.ObjectId
   createdAt DateTime @default(now())
 }
