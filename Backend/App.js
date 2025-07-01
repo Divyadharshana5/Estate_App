@@ -5,6 +5,8 @@ import authRoute from "./routes/auth.route.js";
 import postRoute from "./routes/post.route.js";
 import testRoute from "./routes/test.route.js";
 import userRoute from "./routes/user.route.js";
+import chatRoute from "./routes/chat.route.js";
+import messageRoute from "./routes/message.route.js";
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use("/Backend/posts", postRoute);
 app.use("/Backend/auth", authRoute);
 app.use("/Backend/test", testRoute);
 app.use("/Backend/users", userRoute);
+app.use("/Backend/chat", chatRoute);
+app.use("/Backend/message", messageRoute);
 
 app.listen(8000, () => {
   console.log("Server is running!");
