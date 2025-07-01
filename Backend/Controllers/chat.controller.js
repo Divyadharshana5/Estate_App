@@ -5,7 +5,9 @@ export const getChats = async (req, res) => {
   try {
     const chats = await prisma.chat.findMany({
       where: {
-        userIds: {},
+        userIds: {
+          hasSome: [tokenUserId],
+        },
       },
     });
     res.status(200).json(users);
