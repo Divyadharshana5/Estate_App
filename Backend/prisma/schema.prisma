@@ -105,7 +105,5 @@ model Chat{
 }
 model Message{
   id String @id @default(uuid()) @map("_id")
-  
-  createdAt DateTime @default(now())
-  seenBy String[] @db.ObjectId
+   createdAt DateTime @default(now())
 }
