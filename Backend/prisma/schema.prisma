@@ -93,10 +93,10 @@ model Post {
  userId String @map("user_id") 
  postDetail PostDetail?
  savedPosts SavedPost[]
-
+chats Chat[]
 }
 model Chat{
   id String @id @default(uuid()) @map("_id")
-  users[]
+  users User[]
   createdAt DateTime @default(now())
 }
