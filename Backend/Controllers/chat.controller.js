@@ -3,6 +3,7 @@ import prisma from "../lib/prisma.js";
 export const getChats = async (req, res) => {
   const tokenUserId = req.userId;
   try {
+    const chats = await prisma.chat.findMany();
     res.status(200).json(users);
   } catch (err) {
     console.log(err);
