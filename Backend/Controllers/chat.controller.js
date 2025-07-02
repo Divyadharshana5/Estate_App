@@ -21,7 +21,11 @@ export const getChat = async (req, res) => {
   const tokenUserId = req.userId;
 
   try {
-    const chst = await prisma.chat.findUnique({});
+    const chat = await prisma.chat.findUnique({
+      where: {
+        id: req.params.id,
+      },
+    });
     res.status(200).json(users);
   } catch (err) {
     console.log(err);
