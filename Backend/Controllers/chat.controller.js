@@ -34,7 +34,7 @@ export const addChats = async (req, res) => {
         userIDs: [tokenUserId, req.body.receiverId],
       },
     });
-    res.status(200).json(users);
+    res.status(200).json(newChat);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to add chats!" });
