@@ -21,6 +21,7 @@ export const getChat = async (req, res) => {
   const tokenUserId = req.userId;
 
   try {
+    const chst = await prisma.chat.findUnique({});
     res.status(200).json(users);
   } catch (err) {
     console.log(err);
