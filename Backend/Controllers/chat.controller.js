@@ -40,6 +40,9 @@ export const getChat = async (req, res) => {
       where: {
         id: req.params.id,
       },
+      data: {
+        seenBy: {},
+      },
     });
     res.status(200).json(chat);
   } catch (err) {
