@@ -85,7 +85,7 @@ export const readChat = async (req, res) => {
         },
       },
     });
-    res.status(200).json(users);
+    res.status(200).json(chat);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to read chats!" });
