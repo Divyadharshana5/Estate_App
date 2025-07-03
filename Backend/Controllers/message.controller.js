@@ -29,6 +29,9 @@ export const addMessage = async (req, res) => {
       where: {
         id: chatId,
       },
+      data: {
+        seenBy: [tokenUserId],
+      },
     });
     res.status(200).json(users);
   } catch (err) {
