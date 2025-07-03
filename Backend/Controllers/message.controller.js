@@ -14,6 +14,8 @@ export const addMessage = async (req, res) => {
         },
       },
     });
+
+    if (!chat) return res.status(404).json({ message: "Chat not found!" });
     res.status(200).json(users);
   } catch (err) {
     console.log(err);
