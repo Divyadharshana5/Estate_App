@@ -1,6 +1,7 @@
 import prisma from "../lib/prisma.js";
 
 export const addMessage = async (req, res) => {
+  const tokenUserId = req.userId;
   try {
     res.status(200).json(users);
   } catch (err) {
