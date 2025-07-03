@@ -28,6 +28,13 @@ export const getChat = async (req, res) => {
           hasSome: [tokenUserId],
         },
       },
+      include: {
+        messages: {
+          orderBy: {
+            createdAt: "",
+          },
+        },
+      },
     });
     res.status(200).json(chat);
   } catch (err) {
