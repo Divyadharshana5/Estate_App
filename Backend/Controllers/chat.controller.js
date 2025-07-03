@@ -41,7 +41,9 @@ export const getChat = async (req, res) => {
         id: req.params.id,
       },
       data: {
-        seenBy: {},
+        seenBy: {
+          set: [tokenUserId],
+        },
       },
     });
     res.status(200).json(chat);
