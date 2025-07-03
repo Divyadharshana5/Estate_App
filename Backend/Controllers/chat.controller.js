@@ -69,6 +69,7 @@ export const addChats = async (req, res) => {
 };
 
 export const readChat = async (req, res) => {
+  const tokenUserId = req.userId;
   try {
     res.status(200).json(users);
   } catch (err) {
