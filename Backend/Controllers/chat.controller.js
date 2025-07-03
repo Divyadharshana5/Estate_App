@@ -36,6 +36,11 @@ export const getChat = async (req, res) => {
         },
       },
     });
+    await prisma.chat.update({
+      where: {
+        id: req.params.id,
+      },
+    });
     res.status(200).json(chat);
   } catch (err) {
     console.log(err);
