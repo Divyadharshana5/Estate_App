@@ -24,6 +24,12 @@ export const addMessage = async (req, res) => {
         userId: tokenUserId,
       },
     });
+
+    await prisma.chat.update({
+      where: {
+        id: chatId,
+      },
+    });
     res.status(200).json(users);
   } catch (err) {
     console.log(err);
