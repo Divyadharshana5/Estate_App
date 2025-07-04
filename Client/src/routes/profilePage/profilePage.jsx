@@ -88,10 +88,9 @@ function ProfilePage() {
               resolve={data.chatResponse}
               errorElement={<p>Error loading chats!</p>}
             >
-              {(chatResponse) => <List posts={chatResponse.data.savedPosts} />}
+              {(chatResponse) => <Chat />}
             </Await>
           </Suspense>
-          <Chat />
         </div>
       </div>
     </div>
