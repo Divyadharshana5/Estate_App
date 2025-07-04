@@ -10,7 +10,8 @@ export const getChats = async (req, res) => {
         },
       },
     });
-    res.status(200).json(chats);
+
+    for (const chat of chats) res.status(200).json(chats);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get chats!" });
