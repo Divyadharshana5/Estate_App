@@ -31,6 +31,7 @@ export const addMessage = async (req, res) => {
       },
       data: {
         seenBy: [tokenUserId],
+        lastMessage: text,
       },
     });
     res.status(200).json(users);
