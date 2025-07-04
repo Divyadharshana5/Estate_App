@@ -86,9 +86,9 @@ function ProfilePage() {
           <Suspense fallback={<p>Loading...</p>}>
             <Await
               resolve={data.chatResponse}
-              errorElement={<p>Error loading posts!</p>}
+              errorElement={<p>Error loading chats!</p>}
             >
-              {(postResponse) => <List posts={postResponse.data.savedPosts} />}
+              {(chatResponse) => <List posts={chatResponse.data.savedPosts} />}
             </Await>
           </Suspense>
           <Chat />
