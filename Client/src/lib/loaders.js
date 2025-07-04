@@ -20,5 +20,6 @@ export const profilePageLoader = async () => {
 
   return defer({
     postResponse: postPromise,
+    chatResponse: chatPromise,
   });
 };
