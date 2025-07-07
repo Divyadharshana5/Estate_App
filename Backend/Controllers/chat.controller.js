@@ -17,6 +17,9 @@ export const getChats = async (req, res) => {
         where: {
           id: receiverId,
         },
+        select: {
+          id: true,
+        },
       });
     }
     res.status(200).json(chats);
