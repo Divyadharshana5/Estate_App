@@ -23,6 +23,7 @@ export const getChats = async (req, res) => {
           avatar: true,
         },
       });
+      chat.receiver = receiver;
     }
     res.status(200).json(chats);
   } catch (err) {
