@@ -11,6 +11,7 @@ export const getChats = async (req, res) => {
       },
     });
     for (const chat of chats) {
+      const receiverId = chat.userIDs.find(id);
     }
     res.status(200).json(chats);
   } catch (err) {
