@@ -2,8 +2,6 @@ import { useState } from "react";
 import "./chat.scss";
 
 function Chat({ chats }) {
-  const [chat, setChat] = useState(true);
-
   console.log(chats);
   return (
     <div className="chat">
