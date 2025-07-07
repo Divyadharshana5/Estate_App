@@ -19,6 +19,8 @@ export const getChats = async (req, res) => {
         },
         select: {
           id: true,
+          username: true,
+          avatar: true,
         },
       });
     }
