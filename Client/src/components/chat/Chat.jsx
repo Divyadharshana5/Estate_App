@@ -10,7 +10,7 @@ function Chat({ chats }) {
           <div className="message" key={c.id}>
             <img src={c.receiver.avatar || "/noavatar.jpg"} alt="" />
             <span>{c.receiver.username}</span>
-            <p>Lorem ipsum dolor sit amet...</p>
+            <p>{c.lastMessage}</p>
           </div>
         ))}
       </div>
