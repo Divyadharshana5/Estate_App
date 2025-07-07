@@ -5,14 +5,12 @@ export const getChats = async (req, res) => {
   try {
     const chats = await prisma.chat.findMany({
       where: {
-        userIds: {
+        userIDs: {
           hasSome: [tokenUserId],
         },
       },
     });
-
     for (const chat of chats) {
-      const receiverId = chat.userIDs.find(id);
     }
     res.status(200).json(chats);
   } catch (err) {

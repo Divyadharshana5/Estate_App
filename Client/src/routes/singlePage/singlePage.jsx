@@ -4,7 +4,7 @@ import Map from "../../components/map/Map";
 import { redirect, useLoaderData } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 
 function SinglePage() {
