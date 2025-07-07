@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./chat.scss";
+import { AuthContext } from "../../Context/AuthContext";
 
 function Chat({ chats }) {
   const [chat, setChat] = useState(false);
+  const { currentUser } = useContext(AuthContext);
   return (
     <div className="chat">
       <div className="messages">
