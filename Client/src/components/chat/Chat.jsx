@@ -4,6 +4,7 @@ import "./chat.scss";
 function Chat({ chats }) {
   const [chat, setChat] = useState(true);
 
+  console.log(chats);
   return (
     <div className="chat">
       <div className="messages">
