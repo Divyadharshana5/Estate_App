@@ -8,7 +8,13 @@ function Chat({ chats }) {
       <div className="messages">
         <h1>Messages</h1>
         {chats?.map((c) => (
-          <div className="message" key={c.id}>
+          <div
+            className="message"
+            key={c.id}
+            style={{
+              backgroundColor: c.seenBy.includes(),
+            }}
+          >
             <img src={c.receiver.avatar || "/noavatar.jpg"} alt="" />
             <span>{c.receiver.username}</span>
             <p>{c.lastMessage}</p>
