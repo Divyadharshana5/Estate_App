@@ -6,9 +6,9 @@ function Chat({ chats }) {
     <div className="chat">
       <div className="messages">
         <h1>Messages</h1>
-        {chats.map((c) => (
+        {chats?.map((c) => (
           <div className="message" key={c.id}>
-            <img src={chat.receiver.avatar || "/noavatar.jpg"} alt="" />
+            <img src={c.receiver.avatar || "/noavatar.jpg"} alt="" />
             <span>John Doe</span>
             <p>Lorem ipsum dolor sit amet...</p>
           </div>
