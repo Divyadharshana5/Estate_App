@@ -4,7 +4,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 
 function Chat({ chats }) {
-  const [chat, setChat] = useState(true);
+  const [chat, setChat] = useState(null);
   const { currentUser } = useContext(AuthContext);
 
   const handleOpenChat = async (id, receiver) => {
