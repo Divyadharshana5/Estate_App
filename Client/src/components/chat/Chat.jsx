@@ -43,7 +43,7 @@ function Chat({ chats }) {
           <div className="top">
             <div className="user">
               <img src={chat.receiver.avatar || "noavatar.jpg"} alt="" />
-              John Doe
+              {chat.receiver.username}
             </div>
             <span className="close" onClick={() => setChat(null)}>
               X
