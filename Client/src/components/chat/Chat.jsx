@@ -7,7 +7,7 @@ function Chat({ chats }) {
   const [chat, setChat] = useState(true);
   const { currentUser } = useContext(AuthContext);
 
-  const handleOpenChat = async (id) => {
+  const handleOpenChat = async (id, receiver) => {
     try {
       const res = await apiRequest("/chats/" + id);
       setChat(res.data);
