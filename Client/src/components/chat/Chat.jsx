@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import "./chat.scss";
 import { AuthContext } from "../../Context/AuthContext";
+import apiRequest from "../../lib/apiRequest";
 
 function Chat({ chats }) {
   const [chat, setChat] = useState(false);
@@ -8,6 +9,7 @@ function Chat({ chats }) {
 
   const handleOpenChat = async (id) => {
     try {
+      const res = await apiRequest("");
     } catch (err) {
       console.log(err);
     }
