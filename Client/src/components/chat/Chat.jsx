@@ -29,7 +29,7 @@ function Chat({ chats }) {
                 : "#fecd514e",
             }}
             onClick={() => {
-              handleOpenChat(c.id);
+              handleOpenChat(c.id, c.receiver);
             }}
           >
             <img src={c.receiver.avatar || "/noavatar.jpg"} alt="" />
