@@ -50,6 +50,7 @@ function Chat({ chats }) {
             </span>
           </div>
           <div className="center">
+            {chat.messages.map(message=>())}
             <div className="chatMessage own">
               <p>Lorem ipsum dolor sit amet</p>
               <span>1 hour ago</span>
