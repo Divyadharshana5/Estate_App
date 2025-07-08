@@ -14,7 +14,7 @@ function Chat({ chats }) {
             className="message"
             key={c.id}
             style={{
-              backgroundColor: c.seenBy.includes(),
+              backgroundColor: c.seenBy.includes(currentUser.id) ? "white" : "",
             }}
           >
             <img src={c.receiver.avatar || "/noavatar.jpg"} alt="" />
