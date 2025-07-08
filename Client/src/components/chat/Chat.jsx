@@ -6,7 +6,12 @@ function Chat({ chats }) {
   const [chat, setChat] = useState(false);
   const { currentUser } = useContext(AuthContext);
 
-  const handleOpenChat = async (id) => {};
+  const handleOpenChat = async (id) => {
+    try {
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="chat">
       <div className="messages">
