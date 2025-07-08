@@ -10,6 +10,7 @@ function Chat({ chats }) {
   const handleOpenChat = async (id) => {
     try {
       const res = await apiRequest("/chats/" + id);
+      setChat(res.data);
     } catch (err) {
       console.log(err);
     }
