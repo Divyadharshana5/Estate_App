@@ -5,6 +5,8 @@ import { AuthContext } from "../../Context/AuthContext";
 function Chat({ chats }) {
   const [chat, setChat] = useState(false);
   const { currentUser } = useContext(AuthContext);
+
+  const handleOpenChat = async (id) => {};
   return (
     <div className="chat">
       <div className="messages">
@@ -18,6 +20,7 @@ function Chat({ chats }) {
                 ? "white"
                 : "#fecd514e",
             }}
+            onClick={handleOpenChat}
           >
             <img src={c.receiver.avatar || "/noavatar.jpg"} alt="" />
             <span>{c.receiver.username}</span>
