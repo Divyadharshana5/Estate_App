@@ -20,7 +20,9 @@ function Chat({ chats }) {
                 ? "white"
                 : "#fecd514e",
             }}
-            onClick={handleOpenChat}
+            onClick={() => {
+              handleOpenChat(c.id);
+            }}
           >
             <img src={c.receiver.avatar || "/noavatar.jpg"} alt="" />
             <span>{c.receiver.username}</span>
