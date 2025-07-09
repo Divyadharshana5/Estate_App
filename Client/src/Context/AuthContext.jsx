@@ -18,11 +18,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (currentUser !== null) {
-      localStorage.setItem("user", JSON.stringify(currentUser));
-    } else {
-      localStorage.removeItem("user");
-    }
+    localStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);
 
   return (

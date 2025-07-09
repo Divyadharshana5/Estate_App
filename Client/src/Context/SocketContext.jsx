@@ -4,21 +4,10 @@ import { io } from "socket.io-client";
 export const SocketContext = createContext();
 
 export const SocketContextProvider = ({ children }) => {
-  const [socket, setSocket] = useState(() => {
-    try {
-      const storedUser = localStorage.getItem(" null");
-    } catch (error) {
-      console.error("Error parsing JSON from localStorage:", error);
-      return null;
-    }
-  });
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    if (currentUser !== null) {
-      localStorage.setItem("user", JSON.stringify(currentUser));
-    } else {
-      localStorage.removeItem("user");
-    }
+    localStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);
 
   return (
