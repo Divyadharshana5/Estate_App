@@ -25,6 +25,7 @@ function Chat({ chats }) {
     if (!text) return;
     try {
       const res = await apiRequest.post("/messages/" + chat.id, { text });
+      setChat((prev) => ({ ...prev, messages: [...prev.messages] }));
     } catch (err) {
       console.log(err);
     }
