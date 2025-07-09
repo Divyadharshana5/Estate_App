@@ -5,3 +5,7 @@ const io = new Server({
     origin: "http://localhost:5173",
   },
 });
+
+io.on("connection", (socket) => {
+  console.log(socket);
+});
