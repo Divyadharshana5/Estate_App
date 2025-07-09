@@ -59,6 +59,8 @@ function Chat({ chats }) {
                     message.userId === currentUser.id
                       ? "flex-end"
                       : "flex-start",
+                  textAlign:
+                    message.userId === currentUser.id ? "right" : "left",
                 }}
                 key={message.id}
               >
