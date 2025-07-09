@@ -7,7 +7,7 @@ export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(currentUser));
+    setSocket(io("http://localhost"));
   }, [currentUser]);
 
   return (
