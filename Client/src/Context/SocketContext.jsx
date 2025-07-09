@@ -6,17 +6,12 @@ export const SocketContext = createContext();
 export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(() => {
     try {
-      const storedUser = localStorage.getItem("user");
-      return storedUser ? JSON.parse(storedUser) : null;
+      const storedUser = localStorage.getItem(" null");
     } catch (error) {
       console.error("Error parsing JSON from localStorage:", error);
       return null;
     }
   });
-
-  const updateUser = (data) => {
-    setCurrentUser(data);
-  };
 
   useEffect(() => {
     if (currentUser !== null) {
