@@ -54,7 +54,7 @@ function Chat({ chats }) {
             {chat.messages.map((message) => (
               <div className="chatMessage own" key={message.id}>
                 <p>{message.text}</p>
-                <span>1 hour ago</span>
+                <span>{format}</span>
               </div>
             ))}
           </div>
