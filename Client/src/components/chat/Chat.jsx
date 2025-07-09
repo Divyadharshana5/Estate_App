@@ -21,6 +21,8 @@ function Chat({ chats }) {
 
     const formData = new FormData(e.target);
     const text = formData.get("text");
+
+    if (!text) return;
     try {
     } catch (err) {
       console.log(err);
