@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "./chat.scss";
 import { AuthContext } from "../../Context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
+import { format } from "timeago.js";
 
 function Chat({ chats }) {
   const [chat, setChat] = useState(null);
