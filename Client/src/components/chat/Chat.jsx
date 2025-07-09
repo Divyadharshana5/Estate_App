@@ -55,7 +55,10 @@ function Chat({ chats }) {
               <div
                 className="chatMessage"
                 style={{
-                  alignSelf: "",
+                  alignSelf:
+                    message.userId === currentUser.id
+                      ? "flex-end"
+                      : "flex-start",
                 }}
                 key={message.id}
               >
