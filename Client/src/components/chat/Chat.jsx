@@ -52,7 +52,7 @@ function Chat({ chats }) {
           <div className="center">
             {chat.messages.map((message) => (
               <div className="chatMessage own" key={message.id}>
-                <p>Lorem ipsum dolor sit amet</p>
+                <p>{message.text}</p>
                 <span>1 hour ago</span>
               </div>
             ))}
