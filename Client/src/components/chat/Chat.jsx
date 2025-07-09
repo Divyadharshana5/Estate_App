@@ -16,6 +16,16 @@ function Chat({ chats }) {
       console.log(err);
     }
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const text = formData.get("text");
+    try {
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="chat">
       <div className="messages">
@@ -69,10 +79,10 @@ function Chat({ chats }) {
               </div>
             ))}
           </div>
-          <div className="bottom">
-            <textarea></textarea>
+          <form onSubmit={handleSubmit} className="bottom">
+            <textarea name="text"></textarea>
             <button>Send</button>
-          </div>
+          </form>
         </div>
       )}
     </div>
