@@ -52,7 +52,13 @@ function Chat({ chats }) {
           </div>
           <div className="center">
             {chat.messages.map((message) => (
-              <div className="chatMessage own" key={message.id}>
+              <div
+                className="chatMessage"
+                style={{
+                  alignSelf: "",
+                }}
+                key={message.id}
+              >
                 <p>{message.text}</p>
                 <span>{format(message.createdAt)}</span>
               </div>
