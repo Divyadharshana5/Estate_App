@@ -7,11 +7,11 @@ export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    setSocket(io("http://localhost"));
-  }, [currentUser]);
+    setSocket(io("http://localhost:4000"));
+  }, []);
 
   return (
-    <SocketContext.Provider value={{ currentUser, updateUser }}>
+    <SocketContext.Provider value={{ socket }}>
       {children}
     </SocketContext.Provider>
   );
