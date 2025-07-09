@@ -24,7 +24,7 @@ function Chat({ chats }) {
 
     if (!text) return;
     try {
-      const res = await apiRequest.post("/messages", { text });
+      const res = await apiRequest.post("/messages/" + chat.id, { text });
     } catch (err) {
       console.log(err);
     }
