@@ -33,8 +33,13 @@ function Chat({ chats }) {
       console.log(err);
     }
   };
+
+  const testSocket = () => {
+    socket.emit("test", "hi from client");
+  };
   return (
     <div className="chat">
+      <button onClick={testSocket}></button>
       <div className="messages">
         <h1>Messages</h1>
         {chats?.map((c) => (
