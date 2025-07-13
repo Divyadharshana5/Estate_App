@@ -10,6 +10,9 @@ let onlineUser = [];
 
 const addUser = (userId, socketId) => {
   const userExits = onlineUser.find((user) => user.userId === userId);
+  if (!userExits) {
+    onlineUser.push({ userId, socketId });
+  }
 };
 
 io.on("connection", (socket) => {
