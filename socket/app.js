@@ -16,7 +16,9 @@ const addUser = (userId, socketId) => {
 };
 
 io.on("connection", (socket) => {
-  socket.on("newUser", (user) => {});
+  socket.on("newUser", (user) => {
+    addUser;
+  });
 });
 
 io.listen("4000");
