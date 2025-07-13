@@ -25,6 +25,8 @@ io.on("connection", (socket) => {
   });
 });
 
-socket.on("disconnect", () => {});
+socket.on("disconnect", () => {
+  removeUser(socket.id);
+});
 
 io.listen("4000");
