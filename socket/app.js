@@ -6,10 +6,6 @@ const io = new Server({
   },
 });
 
-io.on("connection", (socket) => {
-  socket.on("test", (data) => {
-    console.log(data);
-  });
-});
+io.on("connection", (socket) => {});
 
 io.listen("4000");
