@@ -34,9 +34,6 @@ function Chat({ chats }) {
     }
   };
 
-  const testSocket = () => {
-    socket.emit("test", "hi from client");
-  };
   return (
     <div className="chat">
       <button onClick={testSocket}>Test me</button>
