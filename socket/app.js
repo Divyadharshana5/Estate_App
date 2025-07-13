@@ -6,9 +6,11 @@ const io = new Server({
   },
 });
 
-let onlineUsers = [];
+let onlineUser = [];
 
-const addUser = (userId, socketId) => {};
+const addUser = (userId, socketId) => {
+  const userExits = onlineUser.find((user) => user.userId === userId);
+};
 
 io.on("connection", (socket) => {
   socket.on("newUser", (user) => {});
