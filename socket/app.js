@@ -29,6 +29,10 @@ io.on("connection", (socket) => {
   });
 });
 
+socket.on("sendMessage", ({ receiverId, data }) => {
+  console.log(receiverId);
+});
+
 socket.on("disconnect", () => {
   removeUser(socket.id);
 });
