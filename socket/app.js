@@ -6,6 +6,10 @@ const io = new Server({
   },
 });
 
-io.on("connection", (socket) => {});
+let onlineUsers = [];
+
+io.on("connection", (socket) => {
+  socket.on("newUser", (user) => {});
+});
 
 io.listen("4000");
