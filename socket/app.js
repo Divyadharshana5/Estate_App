@@ -25,6 +25,6 @@ io.on("connection", (socket) => {
   });
 });
 
-socket.on("discount", () => {});
+socket.on("disconnect", () => {});
 
 io.listen("4000");
