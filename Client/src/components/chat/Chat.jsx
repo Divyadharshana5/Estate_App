@@ -36,7 +36,6 @@ function Chat({ chats }) {
 
   return (
     <div className="chat">
-      <button onClick={testSocket}>Test me</button>
       <div className="messages">
         <h1>Messages</h1>
         {chats?.map((c) => (
