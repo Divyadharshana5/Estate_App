@@ -21,4 +21,6 @@ io.on("connection", (socket) => {
   });
 });
 
+socket.on("discount", () => {});
+
 io.listen("4000");
