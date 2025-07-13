@@ -8,6 +8,8 @@ const io = new Server({
 
 let onlineUsers = [];
 
+const addUser = (userId, socketId) => {};
+
 io.on("connection", (socket) => {
   socket.on("newUser", (user) => {});
 });
