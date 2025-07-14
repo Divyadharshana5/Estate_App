@@ -40,7 +40,11 @@ function Chat({ chats }) {
 
   useEffect(() => {
     if ((chat, socket)) {
-      socket.on("getMessage", (data) => {});
+      socket.on("getMessage", (data) => {
+        if (chat.id === data.chatId) {
+          setChat((prev) => {});
+        }
+      });
     }
   }, [socket, chat]);
 
