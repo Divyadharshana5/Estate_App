@@ -39,7 +39,7 @@ function Chat({ chats }) {
   };
 
   useEffect(() => {
-    if (socket) {
+    if ((chat, socket)) {
       socket.on("getMessage", (data) => {});
     }
   }, [socket]);
