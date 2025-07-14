@@ -30,6 +30,7 @@ io.on("connection", (socket) => {
 });
 
 socket.on("sendMessage", ({ receiverId, data }) => {
+  const receiver = getUser(receiverId);
   io.to();
 });
 
