@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
 });
 
 socket.on("sendMessage", ({ receiverId, data }) => {
-  console.log(data);
+  io.to();
 });
 
 socket.on("disconnect", () => {
