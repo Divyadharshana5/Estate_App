@@ -30,8 +30,8 @@ io.on("connection", (socket) => {
 });
 
 socket.on("sendMessage", ({ receiverId, data }) => {
-  const receiver = getUser(receiverId)
-  io.to(receiver.socketId).emit("getMessage", {}
+  const receiver = getUser(receiverId);
+  io.to(receiver.socketId).emit("getMessage"), {};
 });
 
 socket.on("disconnect", () => {
