@@ -42,7 +42,7 @@ function Chat({ chats }) {
     if ((chat, socket)) {
       socket.on("getMessage", (data) => {});
     }
-  }, [socket]);
+  }, [socket, chat]);
 
   return (
     <div className="chat">
