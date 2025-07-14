@@ -42,7 +42,7 @@ function Chat({ chats }) {
     if ((chat, socket)) {
       socket.on("getMessage", (data) => {
         if (chat.id === data.chatId) {
-          setChat((prev) => {});
+          setChat((prev) => ({ ...prev, messages: [...prev.messages, data] }));
         }
       });
     }
