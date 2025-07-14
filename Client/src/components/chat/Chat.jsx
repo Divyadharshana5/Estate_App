@@ -38,7 +38,11 @@ function Chat({ chats }) {
     }
   };
 
-  useEffect(() => {}, [socket]);
+  useEffect(() => {
+    if (socket) {
+      socket.on("");
+    }
+  }, [socket]);
 
   return (
     <div className="chat">
