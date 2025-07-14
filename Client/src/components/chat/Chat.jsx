@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./chat.scss";
 import { AuthContext } from "../../Context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
@@ -37,6 +37,8 @@ function Chat({ chats }) {
       console.log(err);
     }
   };
+
+  useEffect(() => {}, [socket]);
 
   return (
     <div className="chat">
