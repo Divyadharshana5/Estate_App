@@ -10,6 +10,8 @@ export const SocketContextProvider = ({ children }) => {
     setSocket(io("http://localhost:4000"));
   }, []);
 
+  useState(() => {}, []);
+
   return (
     <SocketContext.Provider value={{ socket }}>
       {children}
