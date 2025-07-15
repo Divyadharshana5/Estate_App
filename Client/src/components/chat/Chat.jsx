@@ -37,19 +37,20 @@ function Chat({ chats }) {
       console.log(err);
     }
   };
-
-  const read = async () => {
-    try {
-      await apiRequest.put("/chats/read" + chat.id);
-    } catch (err) {
-      console.log(err);
-    }
-  };
   useEffect(() => {
+    const read = async () => {
+      try {
+        await apiRequest.put("/chats/read" + chat.id);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
     if ((chat, socket)) {
       socket.on("getMessage", (data) => {
         if (chat.id === data.chatId) {
           setChat((prev) => ({ ...prev, messages: [...prev.messages, data] }));
+          read(); // Mark chat as read when a new message is received
         }
       });
     }
