@@ -40,7 +40,7 @@ function Chat({ chats }) {
 
   const read = async () => {
     try {
-      const res = await apiRequest.put("/chats/read" + )
+      const res = await apiRequest.put("/chats/read" + chat.id);
     } catch (err) {
       console.log(err);
     }
