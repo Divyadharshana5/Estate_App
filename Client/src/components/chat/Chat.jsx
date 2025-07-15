@@ -38,6 +38,13 @@ function Chat({ chats }) {
     }
   };
 
+  const read = async () => {
+    try {
+      const res = await apiRequest.put("/chats/read" + )
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
     if ((chat, socket)) {
       socket.on("getMessage", (data) => {
