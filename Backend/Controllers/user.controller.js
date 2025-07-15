@@ -133,7 +133,7 @@ export const profilePosts = async (req, res) => {
 export const getNotificationNumber = async (req, res) => {
   const tokenUserId = req.params.id;
   try {
-    const chats = await prisma.chat.findMany({
+    const chats = await prisma.chat.count({
       where: {
         userIDs: {
           hasSome: [tokenUserId],
