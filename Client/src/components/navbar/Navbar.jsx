@@ -2,10 +2,12 @@ import { useContext, useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
+import { useNotificationStore } from "../../lib/notificationStore";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const { currentUser } = useContext(AuthContext);
+  const fetch = useNotificationStore((state) => state.fetch);
   return (
     <nav>
       <div className="left">
