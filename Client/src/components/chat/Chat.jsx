@@ -66,7 +66,7 @@ function Chat({ chats }) {
             key={c.id}
             style={{
               backgroundColor:
-                c.seenBy.includes(currentUser.id) || chat?.id
+                c.seenBy.includes(currentUser.id) || chat?.id === c.id
                   ? "white"
                   : "#fecd514e",
             }}
