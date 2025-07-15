@@ -13,7 +13,7 @@ function Chat({ chats }) {
 
   const messageEndRef = useRef();
 
-  const descrease = useNotificationStore((state) => state.descrease);
+  const decrease = useNotificationStore((state) => state.decrease);
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
@@ -21,8 +21,10 @@ function Chat({ chats }) {
   const handleOpenChat = async (id, receiver) => {
     try {
       const res = await apiRequest("/chats/" + id);
-      if (!res.data.seenBy.includes(currentUser.id))
-        setChat({ ...res.data, receiver });
+      if (!res.data.seenBy.includes(currentUser.id)) {
+        decrease(); // Decrease notification count if the chat is not seen by the current user
+      }
+      setChat({ ...res.data, receiver });
     } catch (err) {
       console.log(err);
     }
