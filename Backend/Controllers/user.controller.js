@@ -136,7 +136,12 @@ export const getNotificationNumber = async (req, res) => {
     const chats = await prisma.chat.findMany({
       where: {
         userIDs: {
-          has: tokenUserId,
+          hasSome: tokenUserId,
+        },
+        NOT: {
+          seenBy: {
+            hasSome: [tokenUserId],
+          },
         },
       },
     });
