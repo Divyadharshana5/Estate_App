@@ -65,9 +65,10 @@ function Chat({ chats }) {
             className="message"
             key={c.id}
             style={{
-              backgroundColor: c.seenBy.includes(currentUser.id)
-                ? "white"
-                : "#fecd514e",
+              backgroundColor:
+                c.seenBy.includes(currentUser.id) || chat?.id
+                  ? "white"
+                  : "#fecd514e",
             }}
             onClick={() => {
               handleOpenChat(c.id, c.receiver);
