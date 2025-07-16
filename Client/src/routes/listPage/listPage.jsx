@@ -9,41 +9,65 @@ function ListPage() {
   const data = useLoaderData();
 
   return (
-    <div className="listPage">
-      <div className="listContainer">
+    <div className="listPage unique-list-page-bg">
+      <header className="unique-list-header">
+        <h1>🏡 Explore Properties</h1>
+        <p className="unique-list-subheader">
+          Find your dream home or next investment from our curated listings.
+        </p>
+      </header>
+      <div className="listContainer unique-list-container">
         <div className="wrapper">
-          <Filter />
-          <Suspense fallback={<p>Loading...</p>}>
+          <div className="unique-filter-container">
+            <Filter />
+          </div>
+          <Suspense fallback={<p className="unique-loading">Loading...</p>}>
             <Await
               resolve={data.packageLocation}
-              errorElement={<p>Error loading posts</p>}
+              errorElement={<p className="unique-error">Error loading posts</p>}
             >
               {(postResponse) =>
                 Array.isArray(postResponse?.data) &&
                 postResponse.data.length > 0 ? (
-                  postResponse.data.map((post) => (
-                    <Card key={post.id} item={post} />
-                  ))
+                  <div className="unique-card-grid">
+                    {postResponse.data.map((post) => (
+                      <Card key={post.id} item={post} />
+                    ))}
+                  </div>
                 ) : (
-                  <p>No posts found.</p>
+                  <div className="unique-empty-state">
+                    <img
+                      src="/public/search.png"
+                      alt="No posts"
+                      className="unique-empty-img"
+                    />
+                    <p>No posts found. Try adjusting your filters!</p>
+                  </div>
                 )
               }
             </Await>
           </Suspense>
         </div>
       </div>
-      <div className="mapContainer">
-        <Suspense fallback={<p>Loading...</p>}>
+      <div className="mapContainer unique-map-container">
+        <Suspense fallback={<p className="unique-loading">Loading...</p>}>
           <Await
             resolve={data.packageLocation}
-            errorElement={<p>Error loading posts</p>}
+            errorElement={<p className="unique-error">Error loading posts</p>}
           >
             {(postResponse) =>
               Array.isArray(postResponse?.data) &&
               postResponse.data.length > 0 ? (
                 <Map items={postResponse.data} />
               ) : (
-                <p>No posts to display on map.</p>
+                <div className="unique-empty-state">
+                  <img
+                    src="/public/map.png"
+                    alt="No map data"
+                    className="unique-empty-img"
+                  />
+                  <p>No posts to display on map.</p>
+                </div>
               )
             }
           </Await>
