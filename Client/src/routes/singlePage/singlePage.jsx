@@ -26,147 +26,99 @@ function SinglePage() {
     }
   };
   return (
-    <div className="singlePage">
-      <div className="details">
-        <div className="wrapper">
-          <Slider images={post?.images || []} />
-          <div className="info">
-            <div className="top">
-              <div className="post">
-                <h1>{post?.title || "No Title"}</h1>
-                <div className="address">
-                  <img src="/pin.png" alt="" />
-                  <span>{post?.address || "No Address"}</span>
-                </div>
-                <div className="price">$ {post?.price || "-"}</div>
-              </div>
-              <div className="user">
-                <img src={post?.user?.avatar || "/noavatar.png"} alt="" />
-                <span>{post?.user?.username || "Unknown User"}</span>
-              </div>
-            </div>
-            <div
-              className="bottom"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(
-                  post?.postDetail?.desc || "No description available."
-                ),
-              }}
-            ></div>
-          </div>
+    <div
+      className="card-hero"
+      style={{
+        backgroundImage: `linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%), url(${
+          post?.images?.[0] || "/bg.png"
+        })`,
+      }}
+    >
+      <div className="card-glass">
+        <h1>{post?.title || "No Title"}</h1>
+        <div className="address">
+          <img src="/pin.png" alt="" />
+          <span>{post?.address || "No Address"}</span>
+        </div>
+        <div className="price">${post?.price || "-"}</div>
+        <div className="feature-chips">
+          <FeatureChip
+            icon="/utility.png"
+            label="Utilities"
+            value={
+              post?.postDetail?.utilities === "owner"
+                ? "Owner is responsible"
+                : "Tenant is responsible"
+            }
+            color="#ffb347"
+          />
+          <FeatureChip
+            icon="/pet.png"
+            label="Pet Policy"
+            value={
+              post?.postDetail?.pet === "allowed"
+                ? "Pets Allowed"
+                : "Pets not allowed"
+            }
+            color="#77dd77"
+          />
+          <FeatureChip
+            icon="/fee.png"
+            label="Income Policy"
+            value={post?.postDetail?.income || "Not specified"}
+            color="#fcb69f"
+          />
+          <FeatureChip
+            icon="/size.png"
+            label="Size"
+            value={
+              post?.postDetail?.size ? post.postDetail.size + " sqft" : "-"
+            }
+            color="#a0c4ff"
+          />
+          <FeatureChip
+            icon="/bed.png"
+            label="Bedrooms"
+            value={post?.bedroom ? post.bedroom + " beds" : "-"}
+            color="#bdb2ff"
+          />
+          <FeatureChip
+            icon="/bath.png"
+            label="Bathrooms"
+            value={post?.bathroom ? post.bathroom + " bathroom" : "-"}
+            color="#ffc6ff"
+          />
+        </div>
+        <div className="card-actions">
+          <button className="gradient-btn">
+            <img src="/save.png" alt="" /> Save
+          </button>
+          <button className="gradient-btn">
+            <img src="/chat.png" alt="" /> Message
+          </button>
         </div>
       </div>
-      <div className="features">
-        <div className="wrapper">
-          <p className="title">General</p>
-          <div className="listVertical">
-            <div className="feature">
-              <img src="/utility.png" alt="" />
-              <div className="featureText">
-                <span>Utilities</span>
-                {post?.postDetail?.utilities === "owner" ? (
-                  <p>Owner is responsible</p>
-                ) : (
-                  <p>Tenant is responsible</p>
-                )}
-              </div>
-            </div>
-            <div className="feature">
-              <img src="/pet.png" alt="" />
-              <div className="featureText">
-                <span>Pet Policy</span>
-                {post?.postDetail?.pet === "allowed" ? (
-                  <p>Pets Allowed</p>
-                ) : (
-                  <p>Pets not allowed</p>
-                )}
-              </div>
-            </div>
-            <div className="feature">
-              <img src="/fee.png" alt="" />
-              <div className="featureText">
-                <span>Income Policy</span>
-                <p>{post?.postDetail?.income || "Not specified"}</p>
-              </div>
-            </div>
-          </div>
-          <p className="title">Sizes</p>
-          <div className="sizes">
-            <div className="size">
-              <img src="/size.png" alt="" />
-              <span>
-                {post?.postDetail?.size ? post.postDetail.size + "sqft" : "-"}
-              </span>
-            </div>
-            <div className="size">
-              <img src="/bed.png" alt="" />
-              <span>{post?.bedroom ? post.bedroom + " beds" : "-"}</span>
-            </div>
-            <div className="size">
-              <img src="/bath.png" alt="" />
-              <span>{post?.bathroom ? post.bathroom + " bathroom" : "-"}</span>
-            </div>
-          </div>
-          <p className="title">Nearby Places</p>
-          <div className="listHorizontal">
-            <div className="feature">
-              <img src="/school.png" alt="" />
-              <div className="featureText">
-                <span>School</span>
-                <p>
-                  {post?.postDetail?.school > 999
-                    ? post.postDetail.school / 1000 + "km"
-                    : (post?.postDetail?.school || "-") + "m"}
-                  away
-                </p>
-              </div>
-            </div>
-            <div className="feature">
-              <img src="/pet.png" alt="" />
-              <div className="featureText">
-                <span>Bus Stop</span>
-                <p>
-                  {post?.postDetail?.bus ? post.postDetail.bus + "m away" : "-"}
-                </p>
-              </div>
-            </div>
-            <div className="feature">
-              <img src="/fee.png" alt="" />
-              <div className="featureText">
-                <span>Restaurant</span>
-                <p>
-                  {post?.postDetail?.restaurant
-                    ? post.postDetail.restaurant + "m away"
-                    : "-"}
-                </p>
-              </div>
-            </div>
-          </div>
-          <p className="title">Location</p>
-          <div className="mapContainer">
-            {typeof post?.lat === "number" && typeof post?.lng === "number" ? (
-              <Map items={[post]} />
-            ) : (
-              <div>No location data available.</div>
-            )}
-          </div>
-          <div className="buttons">
-            <button>
-              <img src="/chat.png" alt="" />
-              Send a Message
-            </button>
-            <button
-              onClick={handleSave}
-              style={{ backgroundColor: saved ? "#fece51" : "white" }}
-            >
-              <img src="/save.png" alt="" />
-              {saved ? "Place Saved" : "Save the Place"}
-            </button>
-          </div>
-        </div>
-      </div>
+      <svg className="wave-divider" viewBox="0 0 1440 320">
+        <path
+          fill="#fcb69f"
+          fillOpacity="1"
+          d="M0,224L1440,96L1440,320L0,320Z"
+        ></path>
+      </svg>
     </div>
   );
 }
 
 export default SinglePage;
+
+// --- Helper Components ---
+function FeatureChip({ icon, label, value, color }) {
+  return (
+    <div className="feature-chip" style={{ background: color }}>
+      <img src={icon} alt={label} />
+      <span>
+        {label}: {value}
+      </span>
+    </div>
+  );
+}
