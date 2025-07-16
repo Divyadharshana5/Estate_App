@@ -9,8 +9,8 @@ const io = new Server({
 let onlineUser = [];
 
 const addUser = (userId, socketId) => {
-  const userExits = onlineUser.find((user) => user.userId === userId);
-  if (!userExits) {
+  const userExists = onlineUser.find((user) => user.userId === userId);
+  if (!userExists) {
     onlineUser.push({ userId, socketId });
   }
 };
@@ -24,19 +24,25 @@ const getUser = (userId) => {
 };
 
 io.on("connection", (socket) => {
+  console.log("A user connected:", socket.id);
+
   socket.on("newUser", (userId) => {
     addUser(userId, socket.id);
-    console.log(onlineUser);
+    console.log("Current Online Users:", onlineUser);
+  });
+
+  socket.on("sendMessage", ({ receiverId, data }) => {
+    const receiver = getUser(receiverId);
+    if (receiver) {
+      io.to(receiver.socketId).emit("getMessage", data);
+    }
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected:", socket.id);
+    removeUser(socket.id);
+    console.log("Updated Online Users:", onlineUser);
   });
 });
 
-socket.on("sendMessage", ({ receiverId, data }) => {
-  const receiver = getUser(receiverId);
-  io.to(receiver.socketId).emit("getMessage", data);
-});
-
-socket.on("disconnect", () => {
-  removeUser(socket.id);
-});
-
-io.listen("4000");
+io.listen(4000);

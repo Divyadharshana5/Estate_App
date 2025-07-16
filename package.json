@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "dompurify": "^3.2.6",
-    "socket.io-client": "^4.8.1"
-  }
-}
