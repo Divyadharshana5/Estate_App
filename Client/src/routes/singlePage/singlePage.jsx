@@ -27,115 +27,118 @@ function SinglePage() {
   };
   return (
     <div className="singlePage">
-      <div className="details">
-        <div className="wrapper">
-          <Slider images={post.images} />
-          <div className="info">
-            <div className="top">
-              <div className="post">
-                <h1>{post.title}</h1>
-                <div className="address">
-                  <img src="/pin.png" alt="" />
-                  <span>{post.address}</span>
-                </div>
-                <div className="price">$ {post.price}</div>
-              </div>
-              <div className="user">
-                <img src={post.user?.avatar || "/noavatar.png"} alt="" />
-                <span>{post.user?.username || "Unknown User"}</span>
-              </div>
-            </div>
-            <div
-              className="bottom"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(post.postDetail.desc),
-              }}
-            ></div>
+      {/* Hero Section */}
+      <div
+        className="hero"
+        style={{
+          backgroundImage: `url(${post?.images?.[0] || "/bg.png"})`,
+        }}
+      >
+        <div className="overlay">
+          <h1>{post?.title || "No Title"}</h1>
+          <div className="address">
+            <img src="/pin.png" alt="" />
+            <span>{post?.address || "No Address"}</span>
           </div>
+          <div className="price">$ {post?.price || "-"}</div>
         </div>
       </div>
-      <div className="features">
+      <div className="details">
         <div className="wrapper">
-          <p className="title">General</p>
-          <div className="listVertical">
-            <div className="feature">
-              <img src="/utility.png" alt="" />
-              <div className="featureText">
-                <span>Utilities</span>
-                {post.postDetail.utilities === "owner" ? (
-                  <p>Owner is responsible</p>
-                ) : (
-                  <p>Tenant is responsible</p>
-                )}
-              </div>
-            </div>
-            <div className="feature">
-              <img src="/pet.png" alt="" />
-              <div className="featureText">
-                <span>Pet Policy</span>
-                {post.postDetail.pet === "allowed" ? (
-                  <p>Pets Allowed</p>
-                ) : (
-                  <p>Pets not allowed</p>
-                )}
-              </div>
-            </div>
-            <div className="feature">
-              <img src="/fee.png" alt="" />
-              <div className="featureText">
-                <span>Income Policy</span>
-                <p>{post.postDetail.income}</p>
-              </div>
+          {/* Image Gallery */}
+          <Slider images={post?.images || []} />
+          {/* User Card */}
+          <div className="userCard">
+            <img src={post?.user?.avatar || "/noavatar.png"} alt="" />
+            <div className="userInfo">
+              <span className="username">
+                {post?.user?.username || "Unknown User"}
+              </span>
+              {/* Optionally add a short bio or contact button here */}
             </div>
           </div>
-          <p className="title">Sizes</p>
-          <div className="sizes">
-            <div className="size">
-              <img src="/size.png" alt="" />
-              <span>{post.postDetail.size}sqft</span>
-            </div>
-            <div className="size">
-              <img src="/bed.png" alt="" />
-              <span>{post.bedroom} beds</span>
-            </div>
-            <div className="size">
-              <img src="/bath.png" alt="" />
-              <span>{post.bathroom} bathroom</span>
-            </div>
+          {/* Expandable Description */}
+          <ExpandableDescription
+            desc={post?.postDetail?.desc || "No description available."}
+          />
+          {/* Features Grid */}
+          <div className="features-grid">
+            <FeatureCard
+              icon="/utility.png"
+              label="Utilities"
+              value={
+                post?.postDetail?.utilities === "owner"
+                  ? "Owner is responsible"
+                  : "Tenant is responsible"
+              }
+            />
+            <FeatureCard
+              icon="/pet.png"
+              label="Pet Policy"
+              value={
+                post?.postDetail?.pet === "allowed"
+                  ? "Pets Allowed"
+                  : "Pets not allowed"
+              }
+            />
+            <FeatureCard
+              icon="/fee.png"
+              label="Income Policy"
+              value={post?.postDetail?.income || "Not specified"}
+            />
+            <FeatureCard
+              icon="/size.png"
+              label="Size"
+              value={
+                post?.postDetail?.size ? post.postDetail.size + " sqft" : "-"
+              }
+            />
+            <FeatureCard
+              icon="/bed.png"
+              label="Bedrooms"
+              value={post?.bedroom ? post.bedroom + " beds" : "-"}
+            />
+            <FeatureCard
+              icon="/bath.png"
+              label="Bathrooms"
+              value={post?.bathroom ? post.bathroom + " bathroom" : "-"}
+            />
+            <FeatureCard
+              icon="/school.png"
+              label="School"
+              value={
+                post?.postDetail?.school > 999
+                  ? post.postDetail.school / 1000 + "km away"
+                  : (post?.postDetail?.school || "-") + "m away"
+              }
+            />
+            <FeatureCard
+              icon="/pet.png"
+              label="Bus Stop"
+              value={
+                post?.postDetail?.bus ? post.postDetail.bus + "m away" : "-"
+              }
+            />
+            <FeatureCard
+              icon="/fee.png"
+              label="Restaurant"
+              value={
+                post?.postDetail?.restaurant
+                  ? post.postDetail.restaurant + "m away"
+                  : "-"
+              }
+            />
           </div>
-          <p className="title">Nearby Places</p>
-          <div className="listHorizontal">
-            <div className="feature">
-              <img src="/school.png" alt="" />
-              <div className="featureText">
-                <span>School</span>
-                <p>
-                  {post.postDetail.school > 999
-                    ? post.postDetail.school / 1000 + "km"
-                    : post.postDetail.school + "m"}
-                  away
-                </p>
-              </div>
-            </div>
-            <div className="feature">
-              <img src="/pet.png" alt="" />
-              <div className="featureText">
-                <span>Bus Stop</span>
-                <p>{post.postDetail.bus}m away</p>
-              </div>
-            </div>
-            <div className="feature">
-              <img src="/fee.png" alt="" />
-              <div className="featureText">
-                <span>Restaurant</span>
-                <p>{post.postDetail.restaurant}m away</p>
-              </div>
-            </div>
-          </div>
+          {/* Location Map */}
           <p className="title">Location</p>
           <div className="mapContainer">
-            <Map items={[post]} />
+            {typeof post?.lat === "number" && typeof post?.lng === "number" ? (
+              <Map items={[post]} />
+            ) : (
+              <div>No location data available.</div>
+            )}
           </div>
+          {/* Action Buttons */}
           <div className="buttons">
             <button>
               <img src="/chat.png" alt="" />
@@ -156,3 +159,36 @@ function SinglePage() {
 }
 
 export default SinglePage;
+
+// --- Helper Components ---
+
+function FeatureCard({ icon, label, value }) {
+  return (
+    <div className="featureCard">
+      <img src={icon} alt={label} />
+      <div className="featureText">
+        <span>{label}</span>
+        <p>{value}</p>
+      </div>
+    </div>
+  );
+}
+
+function ExpandableDescription({ desc }) {
+  const [expanded, setExpanded] = useState(false);
+  const preview = desc.length > 200 ? desc.slice(0, 200) + "..." : desc;
+  return (
+    <div className="expandableDescription">
+      <div
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(expanded ? desc : preview),
+        }}
+      ></div>
+      {desc.length > 200 && (
+        <button className="expandBtn" onClick={() => setExpanded((e) => !e)}>
+          {expanded ? "Show Less" : "Read More"}
+        </button>
+      )}
+    </div>
+  );
+}
