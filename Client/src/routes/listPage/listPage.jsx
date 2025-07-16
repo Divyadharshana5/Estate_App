@@ -19,9 +19,14 @@ function ListPage() {
               errorElement={<p>Error loading posts</p>}
             >
               {(postResponse) =>
-                postResponse.data.map((post) => (
-                  <Card key={post.id} item={post} />
-                ))
+                Array.isArray(postResponse?.data) &&
+                postResponse.data.length > 0 ? (
+                  postResponse.data.map((post) => (
+                    <Card key={post.id} item={post} />
+                  ))
+                ) : (
+                  <p>No posts found.</p>
+                )
               }
             </Await>
           </Suspense>
@@ -33,7 +38,14 @@ function ListPage() {
             resolve={data.packageLocation}
             errorElement={<p>Error loading posts</p>}
           >
-            {(postResponse) => <Map items={postResponse.data} />}
+            {(postResponse) =>
+              Array.isArray(postResponse?.data) &&
+              postResponse.data.length > 0 ? (
+                <Map items={postResponse.data} />
+              ) : (
+                <p>No posts to display on map.</p>
+              )
+            }
           </Await>
         </Suspense>
       </div>
