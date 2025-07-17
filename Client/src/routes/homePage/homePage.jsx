@@ -66,6 +66,7 @@ function HomePage() {
         </div>
       </div>
       <div className="imgContainer">
+        <div className="img-animated-overlay"></div>
         <img src="/bg.png" alt="Home background" />
         {/* Decorative overlay image for extra color (optional) */}
         {/* <img className="decorative-overlay" src="/public/arrow.png" alt="Decorative" /> */}
