@@ -27,45 +27,36 @@
   }
 
   .textContainer {
-    flex: 3;
+    flex: 3 1 0;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
-    min-width: 350px;
-    max-width: 600px;
     width: 100%;
+    min-width: 0;
+    max-width: 700px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 1.5rem;
     @include md {
-      min-width: 250px;
       max-width: 100%;
-      width: 100%;
+      padding: 0 0.5rem;
     }
     .wrapper {
+      width: 100%;
+      max-width: 100%;
       background: linear-gradient(100deg, #ffecd2 0%, #fcb69f 100%);
       border-radius: 2rem;
       box-shadow: 0 8px 32px 0 rgba(67, 198, 172, 0.12);
-      padding: 3rem 4rem;
+      padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 2.5rem;
-      height: auto;
-      margin: 2rem 0;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      margin: 0 auto;
+      box-sizing: border-box;
+      overflow: visible;
       animation: fadeIn 1s;
-      max-width: 600px;
-      width: 100%;
-      @include lg {
-        padding: 2rem 2rem;
-      }
-      @include md {
-        padding: 1.5rem 0.5rem;
-        margin: 0 auto;
-      }
-      @include sm {
-        justify-content: flex-start;
-        padding: 1rem 0.2rem;
-        margin: 0 auto;
-      }
       .title {
         font-size: 3.5rem;
         font-weight: 900;

@@ -38,26 +38,13 @@ function HomePage() {
               <h1>16+</h1>
               <h2>Years of Excellence</h2>
             </div>
-            <div className="box">
-              <span className="box-icon" role="img" aria-label="Award">
-                🎖️
-              </span>
-              <h1>200</h1>
-              <h2>Awards Won</h2>
-            </div>
+
             <div className="box">
               <span className="box-icon" role="img" aria-label="Properties">
                 🏠
               </span>
               <h1>2000+</h1>
               <h2>Properties Listed</h2>
-            </div>
-            <div className="box">
-              <span className="box-icon" role="img" aria-label="Happy Clients">
-                😊
-              </span>
-              <h1>5000+</h1>
-              <h2>Happy Clients</h2>
             </div>
           </div>
         </div>
