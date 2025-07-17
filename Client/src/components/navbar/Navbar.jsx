@@ -15,8 +15,14 @@ function Navbar() {
     <nav>
       <div className="left">
         <a href="/" className="logo">
-          <img src="/logo.png" alt="Logo" />
-          <span>CasaCrafts</span>
+          <span className="navbar-appname">
+            CasaCrafts{" "}
+            <span
+              className="navbar-appicon"
+              role="img"
+              aria-label="house"
+            ></span>
+          </span>
         </a>
         <a href="/">Home</a>
         <a href="/">About</a>

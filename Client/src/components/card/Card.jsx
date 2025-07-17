@@ -4,6 +4,12 @@ import "./card.scss";
 function Card({ item }) {
   return (
     <div className="card">
+      {item.featured && <div className="card-ribbon">Featured</div>}
+      <button className="card-fav-btn" aria-label="Favorite">
+        <span role="img" aria-label="heart">
+          ❤️
+        </span>
+      </button>
       <Link to={`/${item.id}`} className="imageContainer">
         <img src={item.image[0]} alt="" />
       </Link>

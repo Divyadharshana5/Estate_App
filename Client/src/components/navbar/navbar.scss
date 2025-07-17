@@ -143,15 +143,20 @@ nav {
       }
     }
     .register {
+      border-radius: 0.5rem;
+      padding: 0 10px;
+      font-size: 0.95rem;
       background: linear-gradient(90deg, #fcb69f 0%, #fece51 100%);
       color: #191654;
       font-weight: 700;
-      border-radius: 0.5rem;
-      padding: 5px 12px;
-      font-size: 0.95rem;
       box-shadow: 0 1px 6px 0 rgba(252, 182, 159, 0.1);
+      border: 1px solid #fcb69f;
+      line-height: 1.1;
+      height: 28px;
+      min-height: unset;
       &:hover {
         background: linear-gradient(90deg, #43c6ac 0%, #f8ffae 100%);
+        border: 1px solid #43c6ac;
       }
     }
     .menuIcon {
@@ -202,5 +207,53 @@ nav {
         }
       }
     }
+  }
+}
+
+.navbar-appname {
+  font-weight: 900;
+  font-size: 1.35rem;
+  background: linear-gradient(
+    90deg,
+    #191654 0%,
+    #43c6ac 30%,
+    #ffb347 65%,
+    #ff5e62 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  text-shadow: 0 2px 12px rgba(67, 198, 172, 0.18), 0 1px 0 #fff;
+  .navbar-appicon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #43c6ac 0%, #ffb347 60%, #ff5e62 100%);
+    box-shadow: 0 0 8px 2px #ffb34755, 0 2px 8px #43c6ac44;
+    margin-left: 4px;
+    position: relative;
+    vertical-align: middle;
+    &::after {
+      content: "";
+      display: block;
+      width: 70%;
+      height: 70%;
+      background: url("/logo.png") center/contain no-repeat;
+      position: absolute;
+      top: 15%;
+      left: 15%;
+      opacity: 0.95;
+    }
+    transition: transform 0.2s;
+  }
+  &:hover .navbar-appicon {
+    transform: scale(1.18) rotate(-10deg);
+    box-shadow: 0 0 16px 4px #ffb34788, 0 2px 12px #43c6ac66;
   }
 }
