@@ -1,0 +1,103 @@
+@import "../../responsive.scss";
+
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #43c6ac 0%, #f8ffae 100%);
+  color: #191654;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  box-shadow: 0 -4px 24px 0 rgba(67, 198, 172, 0.1);
+  padding: 2rem 0 1rem 0;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+
+  .footer-content {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 2rem;
+    @include sm {
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 0 0.5rem;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #191654;
+    img.footer-logo {
+      width: 38px;
+      filter: drop-shadow(0 2px 8px #43c6ac44);
+      border-radius: 0.7rem;
+      background: #fff;
+      padding: 4px;
+    }
+    span {
+      background: linear-gradient(90deg, #191654 0%, #43c6ac 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    a {
+      color: #191654;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-radius: 1rem;
+      padding: 6px 16px;
+      transition: background 0.2s, color 0.2s;
+      &:hover {
+        background: linear-gradient(90deg, #fcb69f 0%, #ffecd2 100%);
+        color: #191654;
+      }
+    }
+    @include sm {
+      gap: 0.7rem;
+    }
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1.2rem;
+    a {
+      font-size: 1.6rem;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 8px 0 #43c6ac33;
+      padding: 7px 12px;
+      transition: background 0.2s, transform 0.2s;
+      &:hover {
+        background: linear-gradient(90deg, #fcb69f 0%, #ffecd2 100%);
+        transform: scale(1.15) rotate(-8deg);
+      }
+    }
+  }
+
+  .footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 1.2rem;
+    color: #191654;
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+}

@@ -1,20 +1,37 @@
 @import "../../responsive.scss";
 
 nav {
-  height: 100px;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: linear-gradient(90deg, #43c6ac 0%, #f8ffae 100%);
+  box-shadow: 0 4px 24px 0 rgba(67, 198, 172, 0.1);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  padding: 0 1.2rem;
+  position: relative;
+  z-index: 10;
 
   a {
-    transition: all 0.4s ease;
-
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #191654;
+    border-radius: 1.5rem;
+    padding: 10px 22px;
+    margin: 0 8px;
+    position: relative;
+    background: transparent;
     @include sm {
       display: none;
     }
-
-    &:hover {
-      scale: 1.05;
+    &:hover,
+    &.active {
+      background: linear-gradient(90deg, #fcb69f 0%, #ffecd2 100%);
+      color: #191654;
+      box-shadow: 0 2px 12px 0 rgba(252, 182, 159, 0.1);
+      transform: translateY(-2px) scale(1.05);
     }
   }
 
@@ -22,24 +39,29 @@ nav {
     flex: 3;
     display: flex;
     align-items: center;
-    gap: 50px;
-
+    gap: 28px;
     .logo {
       font-weight: bold;
-      font-size: 20px;
+      font-size: 1.1rem;
       display: flex;
       align-items: center;
       gap: 10px;
-
+      background: linear-gradient(90deg, #191654 0%, #43c6ac 100%);
+      border-radius: 1.2rem;
+      padding: 4px 10px 4px 6px;
+      color: #fff;
+      box-shadow: 0 2px 12px 0 rgba(25, 22, 84, 0.1);
       img {
-        width: 28px;
+        width: 24px;
+        filter: drop-shadow(0 2px 8px #43c6ac44);
       }
-
       span {
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: 1px;
         @include md {
           display: none;
         }
-
         @include sm {
           display: initial;
         }
@@ -51,102 +73,132 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #fcf5f3;
+    background: transparent;
     height: 100%;
-
     @include md {
-      background-color: transparent;
+      background: transparent;
     }
-
     a {
-      padding: 12px 24px;
-      margin: 20px;
+      padding: 6px 14px;
+      margin: 0 4px;
+      font-size: 1rem;
     }
-
-    .user{
+    .user {
       display: flex;
       align-items: center;
       font-weight: bold;
-
-      img{
-        width: 40px;
-        height: 40px;
+      background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
+      border-radius: 1.5rem;
+      padding: 3px 10px 3px 3px;
+      box-shadow: 0 2px 12px 0 rgba(252, 182, 159, 0.1);
+      img {
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         object-fit: cover;
-        margin-right: 20px;
+        margin-right: 10px;
+        border: 3px solid #43c6ac;
+        box-shadow: 0 2px 8px 0 #43c6ac44;
+        background: #fff;
       }
-
-      span{
-        @include sm{
+      span {
+        color: #191654;
+        font-weight: 700;
+        @include sm {
           display: none;
         }
       }
-
-      .profile{
-        padding: 12px 24px;
-        background-color: #fece51;
+      .profile {
+        padding: 10px 22px;
+        background: linear-gradient(90deg, #43c6ac 0%, #f8ffae 100%);
         cursor: pointer;
         border: none;
         position: relative;
-        
-        .notification{
+        border-radius: 1.5rem;
+        color: #191654;
+        font-weight: 700;
+        box-shadow: 0 2px 12px 0 rgba(67, 198, 172, 0.1);
+        transition: background 0.2s, transform 0.2s;
+        &:hover {
+          background: linear-gradient(90deg, #fcb69f 0%, #ffecd2 100%);
+          transform: translateY(-2px) scale(1.04);
+        }
+        .notification {
           position: absolute;
-          top: -8px;
-          right: -8px;
-          background-color: red;
-          color: white;
+          top: -10px;
+          right: -10px;
+          background: linear-gradient(135deg, #e57373 0%, #ffecd2 100%);
+          color: #fff;
           border-radius: 50%;
           width: 26px;
           height: 26px;
           display: flex;
           align-items: center;
           justify-content: center;
+          font-size: 1rem;
+          font-weight: 800;
+          box-shadow: 0 2px 8px 0 #e5737344;
+          border: 2px solid #fff;
         }
-
       }
     }
-
     .register {
-      background-color: #fece51;
+      background: linear-gradient(90deg, #fcb69f 0%, #fece51 100%);
+      color: #191654;
+      font-weight: 700;
+      border-radius: 0.5rem;
+      padding: 5px 12px;
+      font-size: 0.95rem;
+      box-shadow: 0 1px 6px 0 rgba(252, 182, 159, 0.1);
+      &:hover {
+        background: linear-gradient(90deg, #43c6ac 0%, #f8ffae 100%);
+      }
     }
-
     .menuIcon {
       display: none;
       z-index: 999;
-
       img {
-        width: 36px;
-        height: 36px;
+        width: 28px;
+        height: 28px;
         cursor: pointer;
+        filter: drop-shadow(0 2px 8px #43c6ac44);
       }
-
       @include sm {
         display: inline;
       }
     }
-
     .menu {
       position: absolute;
       top: 0;
-      right: -50%;
-      background-color: black;
-      color: white;
+      right: -60%;
+      background: linear-gradient(135deg, #191654 0%, #43c6ac 100%);
+      color: #fff;
       height: 100vh;
-      width: 50%;
-      transition: all 1s ease;
+      width: 60%;
+      transition: right 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
-
+      font-size: 1.5rem;
+      box-shadow: -4px 0 24px 0 rgba(25, 22, 84, 0.1);
+      border-top-left-radius: 2rem;
+      border-bottom-left-radius: 2rem;
       &.active {
         right: 0;
       }
-
       @include sm {
         a {
           display: initial;
+          color: #fff;
+          background: transparent;
+          margin: 18px 0;
+          font-size: 1.2rem;
+          border-radius: 1rem;
+          &:hover {
+            background: linear-gradient(90deg, #fcb69f 0%, #ffecd2 100%);
+            color: #191654;
+          }
         }
       }
     }
