@@ -27,7 +27,7 @@ function HomePage() {
         <div className="wrapper">
           <h1 className="title dynamic-headline">{HEADLINES[headlineIndex]}</h1>
           <p className="unique-description">
-            Welcome to EstateApp! Explore a curated selection of beautiful
+            Welcome to CasaCrafts! Explore a curated selection of beautiful
             homes, modern apartments, and investment opportunities. Start your
             journey to a better living experience today.
           </p>
@@ -66,8 +66,10 @@ function HomePage() {
         </div>
       </div>
       <div className="imgContainer">
-        <div className="img-animated-overlay"></div>
-        <img src="/bg.png" alt="Home background" />
+        <div className="img-wrapper">
+          <div className="img-animated-overlay"></div>
+          <img src="/bg.png" alt="Home background" />
+        </div>
         {/* Decorative overlay image for extra color (optional) */}
         {/* <img className="decorative-overlay" src="/public/arrow.png" alt="Decorative" /> */}
       </div>
