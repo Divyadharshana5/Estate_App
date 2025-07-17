@@ -32,7 +32,14 @@
     align-items: center;
     justify-content: center;
     z-index: 2;
-    min-width: 0;
+    min-width: 350px;
+    max-width: 600px;
+    width: 100%;
+    @include md {
+      min-width: 250px;
+      max-width: 100%;
+      width: 100%;
+    }
     .wrapper {
       background: linear-gradient(100deg, #ffecd2 0%, #fcb69f 100%);
       border-radius: 2rem;

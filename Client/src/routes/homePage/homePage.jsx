@@ -1,7 +1,6 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "../../components/searchBar/SearchBar";
 import "./homePage.scss";
-import { AuthContext } from "../../Context/AuthContext";
 
 const HEADLINES = [
   "Find Real Estate & Get Your Dream Place",
@@ -11,7 +10,6 @@ const HEADLINES = [
 ];
 
 function HomePage() {
-  const { currentUser } = useContext(AuthContext);
   const [headlineIndex, setHeadlineIndex] = useState(0);
 
   useEffect(() => {
@@ -32,7 +30,6 @@ function HomePage() {
             journey to a better living experience today.
           </p>
           <SearchBar />
-          <button className="cta-btn">Browse Listings</button>
           <div className="boxes">
             <div className="box">
               <span className="box-icon" role="img" aria-label="Experience">
